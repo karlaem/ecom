@@ -10,5 +10,7 @@
         }
         }
         ?>
+        </div>
     </div><!--clientmenu-->
 </div><!--clientnames-->
+<!--End of clients-->

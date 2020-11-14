@@ -16,6 +16,7 @@ C87D11 //darkorange
 }
 p, a{
     font-size: 21px;
+    font-weight: normal;
 }
 h1,h2,.ctabtn{
     font-family: 'Unica One', cursive; 
@@ -345,23 +346,22 @@ font-size: 15px;
 .cmsmenu .clientinfo{
   width: 100%;
   padding: 30px;
-  outline: 1px solid black;
-  outline-offset: -10px;
+  height: auto;
+  background-color:#ECEEF0; /*wind*/
 }
 .cmsmenu a{
  display: block;
  text-decoration: none;
  color: black;
 }
+
 .cmsmenu .clientnames{
   position: relative;
   min-width: 100%;
   float: left;
   padding: 15px;
-  outline: 1px solid black;
-  outline-offset: -10px;
   background-color:#ECEEF0; /*wind*/
-  
+  overflow: hidden;  
 }
 .cmsmenu .clientnames .clientnamelist{
   position: relative;
@@ -380,6 +380,8 @@ font-size: 15px;
     min-width: 70%;
     height: 60vh;
     overflow: auto;
+    outline: 1px solid black;
+    outline-offset: -10px;
   }
   .clientmenu{
     position: relative;
@@ -387,8 +389,9 @@ font-size: 15px;
   .cmsmenu .clientinfo{
     position: absolute;
     right: 15px;
-    width: 68%;
-    height: 93%;
+    top:15px;
+    max-width: 45%;
+    min-height: 100%;
    
   }
 }
@@ -419,7 +422,6 @@ font-size: 15px;
 	background-size: cover;
 	background-position: center center;
   position: relative;
-  outline: 1px solid black;
-  outline-offset: -10px;
+  border: 1px solid black;
   display: inline-block;
 }

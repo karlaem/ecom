@@ -1,3 +1,4 @@
+<div class="clientmenu">
 <div class="clientinfo">
     <?php
     if(isset($this->oClient)){
@@ -15,4 +16,8 @@
     }
     ?>
 </div>
+</div>
+
+<!--view photo-->
+<script src="js/viewphoto.js"></script>
 <!--End of client-->

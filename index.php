@@ -7,6 +7,7 @@ include("libs/Errors.php");
 include("models/User.php");
 include("models/Client.php");
 include("models/Countries.php");
+include("models/Product.php");
 
 //set default
 $controller = setVariable("controller", "Public");

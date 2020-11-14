@@ -9,8 +9,8 @@
                     <a href="index.php?controller=user&action=products">Our Products</a>
                 </div><!--clientour-->
             </div><!--.left-->
-            <div class="clientright">
-                <?=$this->clientlist?>
+            <div class="right">
+                <?=$this->list?>
             </div>
         </div><!--cmsmenu-->
     </div><!--.margins-->
