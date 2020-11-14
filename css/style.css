@@ -312,7 +312,6 @@ font-size: 15px;
 /*client subs*/
 /*cms*/
 .cmsmenu{
-  background: #ECEEF0; /*wind white*/
   margin-top: 20px;
   overflow:hidden;
   padding: 30px;
@@ -341,7 +340,7 @@ font-size: 15px;
   padding: 15px;
   outline: 1px solid black;
   outline-offset: -10px;
-  background-color:#E8DED3;/*beige*/
+  background-color:#ECEEF0; /*wind*/
   
 }
 .cmsmenu .clientnames .clientnamelist{
@@ -361,17 +360,24 @@ font-size: 15px;
     min-width: 70%;
     height: 60vh;
   }
+  .clientmenu{
+    height: 100%;
+  }
   .cmsmenu .clientinfo{
     position: absolute;
     right: 15px;
     width: 65%;
-    height: 90%;
+    min-height: 95%;
   }
 }
 .hero{
   padding: 15px;
   background-color: #E8DED3;/*beige*/
   min-height: 65vh;
+}
+.hero2{
+  background: linear-gradient(to left, #E8DED3 65%, #F8F8FF 35%);
+  min-height: 100vh;
 }
 .herocontent a,.herocontent h1,.herocontent h2,.herocontent p{
   margin: 15px;
