@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--font awesome-->
-    <script src="https://kit.fontawesome.com/7fedf9a63c.js" crossorigin="anonymous"></script>
+    <!--<script src="https://kit.fontawesome.com/7fedf9a63c.js" crossorigin="anonymous"></script>-->
 
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="152x152" href="imgs/favicon/apple-touch-icon.png">

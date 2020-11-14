@@ -318,9 +318,29 @@ font-size: 15px;
 }
 
 .cmsmenu .left{
+  width: 100%;
+  float: left;
+  padding: 10px;
+}
+.cmsmenu .left a{
+  border: 1px solid black;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  background: #F8F8FF;
+  text-align: center;
+}
+@media (min-width: 1024px){
+.cmsmenu .left a{
+  border: 1px solid black;
+  width: 50%;
+  padding: 5px;
+  margin-top: 5px;
+}
+.cmsmenu .left{
   width: 30%;
   float: left;
-
+}
 }
 .cmsmenu .clientinfo{
   width: 100%;
@@ -389,4 +409,15 @@ font-size: 15px;
   .herocontent h1{
     font-size:6rem;
   }
+}
+#thePhoto {
+	background: #F8F8FF;
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+	background-position: center center;
+  position: relative;
+  outline: 1px solid black;
+  outline-offset: -10px;
+  display: inline-block;
 }

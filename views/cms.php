@@ -26,11 +26,13 @@
                     if(isset($this->oClient)){
                     foreach ($this->oClient as $client){
                     ?>
+                     <div class="edithProfilePhoto">
+                        <div id="thePhoto" imgSrc="<?=$client->image?>" ></div>
+                    </div>
                     <h2><?=$client->first_name?> <?=$client->last_name?></hw>
                     <p><?=$client->email?></p>
                     <p><?=$client->age?></p>
                     <p><?=$client->country?></p>
-                    <p><?=$client->image?></p>
                     <?php
                     }
                     }
@@ -42,3 +44,11 @@
     </div><!--.margins-->
 </div><!--.hero2-->
 <!--End of cms-->
+
+<!--view photo-->
+<script>
+var photoTrigger = document.getElementById("thePhoto");
+//see backgroung image
+var ImagePath = photoTrigger.getAttribute("imgsrc");
+photoTrigger.style.backgroundImage ='url('+ImagePath+')';
+</script>
