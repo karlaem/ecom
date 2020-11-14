@@ -43,12 +43,12 @@
         </div><!--cmsmenu-->
     </div><!--.margins-->
 </div><!--.hero2-->
-<!--End of cms-->
 
 <!--view photo-->
 <script>
-var photoTrigger = document.getElementById("thePhoto");
-//see backgroung image
-var ImagePath = photoTrigger.getAttribute("imgsrc");
-photoTrigger.style.backgroundImage ='url('+ImagePath+')';
+    var photoTrigger = document.getElementById("thePhoto");
+    //see backgroung image
+    var ImagePath = photoTrigger.getAttribute("imgsrc");
+    photoTrigger.style.backgroundImage ='url('+ImagePath+')';
 </script>
+<!--End of cms-->
