@@ -14,4 +14,4 @@
     }
     ?>
 </div>
-<!--End of client-->
+<!--End of product-->

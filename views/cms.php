@@ -16,6 +16,4 @@
         </div><!--cmsmenu-->
     </div><!--.margins-->
 </div><!--.hero2-->
-
-
 <!--End of cms-->

@@ -94,4 +94,4 @@
 <script type="text/javascript" src="js/validate2.js"></script> 
 <!--upload image not done-->
 <!--<script type="text/javascript" src="js/uploadimage.js"></script>-->
-<!--End of login-->
+<!--End of subcribe-->

@@ -30,6 +30,6 @@
 </head>
 <body>
     <?=$this->content?>
-    <!--End of main-->
 </body>
 </html>
+ <!--End of main-->

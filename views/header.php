@@ -24,7 +24,6 @@
         <span></span>
     </div><!--.nav-->
 </div><!--.margins-->
-<!--End of Header-->
 
 <!--responsive menu-->
 <nav role="navigation">
@@ -52,3 +51,4 @@
         </ul>
     </div>
 </nav><!--end of nav-->
+<!--End of Header-->
