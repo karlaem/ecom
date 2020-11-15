@@ -15,7 +15,7 @@
         <h1>Subscribe</h1>
         <h2>Subscribe to be the first to recibe news and discounts about out lates products.</h2>
 
-        <form method="POST" action="index.php" id="formSubscribe" enctype="multipart/form-data">
+        <form method="POST" action="index.php" id="form" enctype="multipart/form-data">
         <input type="hidden" name="controller" value="public" /><!--go to publicController-->
         <input type="hidden" name="action" value="doSubscribe"/>
 

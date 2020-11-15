@@ -339,8 +339,12 @@ font-size: 15px;
   margin-top: 5px;
 }
 .cmsmenu .left{
-  width: 30%;
+  width: 25%;
   float: left;
+}
+.right{
+  width: 75%;
+  float: right;
 }
 }
 .cmsmenu .clientinfo{
@@ -354,6 +358,10 @@ font-size: 15px;
  text-decoration: none;
  color: black;
 }
+.cmsmenu a:hover{
+  color:white;
+  background: black;
+ }
 
 .cmsmenu .clientnames{
   position: relative;
@@ -374,25 +382,25 @@ font-size: 15px;
 @media (min-width: 1024px){
   .cmsmenu .clientnames .clientnamelist{
     width: 30%;
-    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .cmsmenu .clientnames{
-    min-width: 70%;
-    height: 60vh;
+    width: 100%;
     overflow: auto;
     outline: 1px solid black;
     outline-offset: -10px;
+    min-height: 50vh;
   }
   .clientmenu{
     position: relative;
   }
+  
   .cmsmenu .clientinfo{
     position: absolute;
     right: 15px;
     top:15px;
-    max-width: 45%;
-    min-height: 100%;
-   
+    max-width: 45%;   
   }
 }
 .hero{
@@ -424,4 +432,65 @@ font-size: 15px;
   position: relative;
   border: 1px solid black;
   display: inline-block;
+}
+/*list*/
+.myList{
+  margin-top: 10px;
+}
+.myList p{
+  line-height: 30px;
+}
+.list{
+  display: inline-block;
+  background:  #F8F8FF; 
+  border-radius: 3px;
+  padding: 10px;
+}
+.header{
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-family: 'Unica One', cursive;
+  font-weight: normal;
+}
+.list .item .edit{
+  padding: 3px;
+  float: left;
+  width: 50px;
+  text-align: center;
+}
+.list .item .name, .list .header .name {
+  float: left; 
+  width: 100px;
+  clear: left;
+}
+.list .item .deleteBtn,.list .header .deleteBtn {
+  float: left; 
+  width: 100px;
+  padding: 3px;
+}
+.list .header .deleteBtn,.list .item .deleteBtn {
+  text-align: center;
+}
+.name a{
+  text-decoration: none;
+  color:#232735;
+}
+.name a:hover,
+.edit a:hover,
+.deleteBtn a:hover{
+  color: #F8F8FF; 
+}
+@media (min-width: 1024px){
+  .list .item .name, .list .header .name {
+   width: 250px;
+  }
+}
+.backbtn{
+  background-color:  #F8F8FF; 
+  border: 1px solid black;
+  width: 200px;
+  text-align: center;
 }

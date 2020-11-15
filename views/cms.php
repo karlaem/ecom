@@ -4,10 +4,11 @@
         <div class="cmsmenu">
             <div class="left"> 
                 <h1>Welcome <?=$this->oCurUser->username?></h1>
-                <div class="clientour">
+                <div class="cmsbtns">
                     <a href="index.php?controller=user&action=clients">Our Clients</a>
-                    <a href="index.php?controller=user&action=products">Our Products</a>
-                </div><!--clientour-->
+                    <a href="index.php?controller=product&action=products">Our Products</a>
+                    <a href="index.php?controller=product&action=addProduct">Add Product</a>
+                </div><!--cmsbtns-->
             </div><!--.left-->
             <div class="right">
                 <?=$this->list?>
@@ -16,11 +17,5 @@
     </div><!--.margins-->
 </div><!--.hero2-->
 
-<!--view photo-->
-<script>
-    var photoTrigger = document.getElementById("thePhoto");
-    //see backgroung image
-    var ImagePath = photoTrigger.getAttribute("imgsrc");
-    photoTrigger.style.backgroundImage ='url('+ImagePath+')';
-</script>
+
 <!--End of cms-->

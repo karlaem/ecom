@@ -1,7 +1,7 @@
 // validate the form
 var Validate = function(){
     var validate = this;
-    validate.element = document.getElementById("form");
+    validate.element = document.getElementById("formProducts");
     validate.element.addEventListener("submit", function(event){
         // create a variable that can be changed to true to overwrite event.preventDefault()
         var error = false;
@@ -10,7 +10,7 @@ var Validate = function(){
 
         for(var i=0; i<fieldGroups.length; i++)
         {   
-            var field = fieldGroups[i].querySelector("input, select"); 
+            var field = fieldGroups[i].querySelector("input, select, textarea"); 
             var fieldValue = field.value;
             
 
