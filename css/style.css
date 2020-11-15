@@ -349,7 +349,7 @@ font-size: 15px;
 }
 .cmsmenu .clientinfo{
   width: 100%;
-  padding: 30px;
+  padding: 10px;
   height: auto;
   background-color:#ECEEF0; /*wind*/
 }
@@ -398,9 +398,10 @@ font-size: 15px;
   
   .cmsmenu .clientinfo{
     position: absolute;
-    right: 15px;
-    top:15px;
-    max-width: 45%;   
+    right: 20px;
+    top:10px;
+    width: 65%;
+    background-color: none;   
   }
 }
 .hero{

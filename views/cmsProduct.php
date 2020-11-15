@@ -1,5 +1,3 @@
-edit a product
-delete a product
 <p>Click to view product details</p>
 <div class="mylist">
     <div class="list">
