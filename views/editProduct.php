@@ -10,31 +10,36 @@
         }
     ?>
 </div>
+<?php
+    if(isset($this->oProduct)){
+        foreach ($this->oProduct as $product){
+        ?>
+     
 <div class="clientnames form">
-    <h1>Add a product</h1>
+    <h1>Edit a product</h1>
 
     <form method="POST" action="index.php" id="formProducts">
         <input type="hidden" name="controller" value="product" /><!--go to productController-->
-        <input type="hidden" name="action" value="insertProduct"/>
-        <input type="hidden" name="id" value=""/>
+        <input type="hidden" name="action" value="updateProduct"/>
+        <input type="hidden" name="id" value="<?=$product->id?>"/>
 
         <div class="fieldgroup required">
             <label>Name</label>
-            <input type="text" name="strName" placeholder="Name"/>          
+            <input type="text" name="strName" value="<?=$product->strName?>" /></input>         
             <div class="popup">                  
-                <p>Add product name</p>
+                <p>Edit product name</p>
             </div>                    
         </div><!--.fieldgroup-->
         <div class="fieldgroup required">
             <label>Description</label>
-            <textarea name="strDescription" cols="45" rows="5" placeholder="Product Description"></textarea>          
+            <textarea name="strDescription" cols="45" rows="5" value="<?=$product->strDescription?>" placeholder="<?=$product->strDescription?>"></textarea>          
             <div class="popup">                  
                 <p>Add description</p>
             </div>                    
         </div><!--.fieldgroup-->
         <div class="fieldgroup required">
             <label>Features</label>
-            <textarea name="strFeatures" cols="45" rows="5" placeholder="Product Features"></textarea>          
+            <textarea name="strFeatures" cols="45" rows="5" value="<?=$product->strFeatures?>" placeholder="<?=$product->strFeatures?>"></textarea>          
             <div class="popup">                  
                 <p>Add product features</p>
             </div>                    
@@ -42,12 +47,13 @@
 
         <div class="fieldgroup required">
             <label>Price</label>
-            <input type="text" name="price" placeholder="price"/>             
+            <input type="text" name="price" value="<?=$product->price?>"/>             
             <div class="popup">                  
                 <p>Add product price</p>
             </div>                    
         </div><!--.fieldgroup-->    
 
+     
         <div class="fieldgroup ">
             <label>Select Category</label>
             <select name="category_id">
@@ -83,6 +89,10 @@
         </div><!--.fieldgroup-->
     </form>
 </div><!--.content-->
+<?php
+    }
+}
+?>
 
 
 <!--Validate form-->

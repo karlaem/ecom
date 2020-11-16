@@ -8,6 +8,8 @@ include("models/User.php");
 include("models/Client.php");
 include("models/Countries.php");
 include("models/Product.php");
+include("models/Category.php");
+include("models/Status.php");
 
 //set default
 $controller = setVariable("controller", "Public");

@@ -9,6 +9,8 @@
         <p><strong>Features:</strong></p>
         <p><?=$product->strFeatures?></p>
         <p><strong>Price:</strong> <?=$product->price?></p>
+        <p><strong>Category:</strong> <?=$product->category_id?></p>
+        <p><strong>Status:</strong> <?=$product->status_id?></p>
         <?php
         }
     }

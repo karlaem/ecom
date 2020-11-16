@@ -31,6 +31,10 @@ Class ProductController extends Controller{
         $this->loadLastView("views/main.php"); 
     }
     public function addProduct(){
+        //get list of inventory status
+        $this->loadData(Status::getAllStatus(), "oStatus");
+        //get list of categories
+        $this->loadData(Category::getCategories(), "oCategory");
         //add product
         $this->loadView("views/addProduct.php",1,"list");
         //load the header
@@ -63,6 +67,39 @@ Class ProductController extends Controller{
 			//goback
 			$this->go("product", "addProduct");
 		}
+    }
+    //delete product
+    public function deleteProduct(){
+        $con = DB::connect();
+        $sql = "DELETE FROM products WHERE id='".$_GET["productid"]."'";
+        $success = mysqli_query($con, $sql);    
+        if ($success)
+        {
+            //echo "deleted";
+            $this->goMsg("product","products","success=1");
+        } else {
+            //echo "error";
+            $this->goMsg("product","products","error=1"); 
+        }
+    }
+    //edit product
+    public function editProduct(){
+        //get list of inventory status
+        $this->loadData(Status::getAllStatus(), "oStatus");
+        //get list of categories
+        $this->loadData(Category::getCategories(), "oCategory");
+        //specific productdata
+        if(isset($_GET["productid"])){
+            $this->loadData(Product::getProduct($_GET["productid"]), "oProduct");
+            $this->loadView("views/product.php", 1, "details"); 
+        }
+        //load products
+        $this->loadView("views/editProduct.php", 1, "list"); 
+        //load the header
+        $this->loadView("views/header.php", 1 ,"header"); 
+        //load the admin final view
+        $this->loadLastView("views/cms.php"); 
+        $this->loadLastView("views/main.php"); 
     }
 
     //check login
