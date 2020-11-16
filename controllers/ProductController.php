@@ -101,6 +101,33 @@ Class ProductController extends Controller{
         $this->loadLastView("views/cms.php"); 
         $this->loadLastView("views/main.php"); 
     }
+    //save edit
+    public function updateProduct(){
+         //if I have variables in post
+        var_dump($_POST);
+		if($_POST["id"] && $_POST["strName"] && $_POST["strDescription"] && $_POST["strFeatures"] && $_POST["price"] && $_POST["category_id"] && $_POST["status_id"]){
+			$con = DB::connect();
+
+            //save variables from form
+            $id = $_POST["id"];
+			$strName = $_POST["strName"];
+			$strDescription = $_POST["strDescription"];
+			$strFeatures = $_POST["strFeatures"];
+			$price= $_POST["price"];
+			$category_id = $_POST["category_id"];
+			$status_id = $_POST["status_id"];
+			$sql = "UPDATE products
+            SET strName='".$strName."', strDescription='".$strDescription."', strFeatures='".$strFeatures."', price='".$price."', category_id='".$category_id."', status_id='".$status_id."'
+            WHERE id='".$id."'";
+			//echo $sql;
+			mysqli_query($con, $sql);
+			$this->goMsg("product","product","success=1");
+		}else{
+            echo "error";
+			//goback
+			$this->goMsg("product","editProduct","error=1");
+		}
+    }
 
     //check login
 	public function pretrip(){
