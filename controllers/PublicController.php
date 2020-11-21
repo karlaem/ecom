@@ -5,11 +5,37 @@ Class PublicController extends Controller{
 
 	//load home page
 	public function main(){
+		//client information
+		if(isset($_SESSION["userId"])){
+		$this->loadData(User::getCurrent(), "oCurUser");
+		}
+
 		$this->loadView("views/header.php",1,"nav");//add nav
 		$this->loadView("views/home.php");//go home
+
+		//view patches list
+		$this->loadData(ProductDetail::getProducts(), "oProduct");
+		$this->loadView("views/patches.php");
+
 		//add subscribe form
 		$this->loadData(Countries::getCountries(), "oCountry");
 		$this->loadView("views/subscribe.php"); 
+
+		$this->loadLastView("views/main.php");
+	}
+	//load patch detail
+	public function mainDetail(){
+		$this->loadView("views/header.php",1,"nav");//add nav	
+
+		//view patches list detail
+		$this->loadData(ProductDetail::getProduct($_GET["productid"]), "oProduct");
+		$this->loadView("views/patch.php");//go detail view	
+
+		//client information
+		if(isset($_SESSION["userId"])){
+		$this->loadData(User::getCurrent(), "oCurUser");
+		}	
+
 		$this->loadLastView("views/main.php");
 	}
 

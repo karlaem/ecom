@@ -101,9 +101,9 @@ h1,h2,.ctabtn{
   }
   #menu {
     position: absolute;
-    width: 100%;
-    margin: -100px 0 0 -20px;
-    padding: 50px;
+    width: 105%;
+    margin: -100px 0 0 -35px;
+    padding: 25px;
     padding-top: 125px;
     background: #F8F8FF; /*spacewhite*/
     list-style-type: none;
@@ -318,18 +318,35 @@ font-size: 15px;
   padding: 15px;
   background-color: #E8DED3;/*beige*/
   min-height: 65vh;
+  overflow: auto;
 }
 .hero2{
   background: #E8DED3;/*beige*/
   height: 100%;
   width: 100%;
-  overflow: auto;
 }
-.herocontent a,.herocontent h1,.herocontent h2,.herocontent p{
-  margin: 15px;
+.herocontent{
+  margin: 15px 0px;
+}
+.herocontent a{
+  text-decoration: none;
+}
+.herocontent p{
+  margin-bottom: 30px;
 }
 .herocontent h1{
   font-size: 4rem;
+}
+.herocontent .left{
+  width: 100%;
+}
+.herocontent .right{
+  width: 100%;
+  padding-top: 50px;
+}
+.herocontent .right img{
+ width: 100%;
+ margin-bottom: 20px;
 }
 /*cms*/
 .cmsmenu{
@@ -350,6 +367,14 @@ font-size: 15px;
   text-align: center;
 }
 @media (min-width: 1024px){
+  .herocontent .left{
+    width: 60%;
+    float: left;
+  }
+  .herocontent .right{
+    width: 40%;
+    float: right;
+  }
   .cmsmenu .left a{
     border: 1px solid black;
     width: 50%;
