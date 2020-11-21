@@ -10,6 +10,7 @@ include("models/Countries.php");
 include("models/Product.php");
 include("models/Category.php");
 include("models/Status.php");
+include("models/Productimages.php");
 
 //set default
 $controller = setVariable("controller", "Public");

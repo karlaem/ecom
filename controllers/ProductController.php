@@ -16,7 +16,12 @@ Class ProductController extends Controller{
         $this->loadLastView("views/cms.php"); 
         $this->loadLastView("views/main.php"); 
     }
-    public function product(){        
+    //prooduct details
+    public function product(){    
+        //image data
+        if(isset($_GET["productid"])){
+            $this->loadData(Productimages::getProductImages($_GET["productid"]), "oImage");
+        }    
         //specific productdata
         if(isset($_GET["productid"])){
         $this->loadData(Product::getProduct($_GET["productid"]), "oProduct");
@@ -25,8 +30,7 @@ Class ProductController extends Controller{
         //Images
         if(isset($_GET["productid"])){
         $this->loadView("views/addproductImages.php", 1, "image"); 
-        }
-            
+        }            
         //load products
         $this->loadView("views/productDetails.php", 1, "list"); 
         //load the header
@@ -78,7 +82,7 @@ Class ProductController extends Controller{
     }
     public function productImages(){
         //var_dump($_FILES);
-        if($_FILES['strphoto']){
+        if($_FILES['strPhoto']['name']){
             $con = DB::connect();
             //image security
             $timestamp =round(microtime(true) * 1000);
@@ -96,13 +100,17 @@ Class ProductController extends Controller{
             }
             //var_dump($target_file);
             //image
-            $sql = "INSERT INTO productphotos (nProductId, strPhoto, bPrimary) VALUES ('".$_POST["id"]."', '".$target_file."', '1')";
+            $sql = "INSERT INTO productphotos (nProductId, strPhoto, bPrimary) VALUES ('".$_POST["id"]."', '".$target_file."', '".$_POST["bPrimary"]."')";
             $success = mysqli_query($con, $sql);
-            
-            $this->goMsg("product","product","success=1");            
+            if($success){
+                $this->goMsg("product","product","productid=".$_POST["id"]."&success=1");
+            }else{
+                $this->goMsg("product", "product","productid=".$_POST["id"]."&error=1");
+            }
         }else{
-			$this->goMsg("product", "product","productid=".$_POST["id"]);
-		}
+            //no image
+            $this->goMsg("product", "product","productid=".$_POST["id"]."&error=2");
+        }
     }
 
     //delete product
@@ -158,11 +166,11 @@ Class ProductController extends Controller{
             WHERE id='".$id."'";
 			//echo $sql;
 			mysqli_query($con, $sql);
-			$this->goMsg("product","product","success=1");
+			$this->goMsg("product","product","productid=".$id."&success=1");
 		}else{
             echo "error";
 			//goback
-			$this->goMsg("product","editProduct","error=1");
+			$this->goMsg("product","editProduct","productid=".$id."&error=1");
 		}
     }
 
