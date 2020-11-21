@@ -6,6 +6,7 @@ Class User {
 	{
 		$this->id = $userData["id"];
 		$this->username = $userData["username"];
+		$this->typeId = $userData["typeId"];
 	}
 
 	/* this function find the user by the userid we have in our session variable 

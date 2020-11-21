@@ -12,7 +12,7 @@ Class UserController extends Controller {
         $this->loadView("views/header.php", 1 ,"header"); 
         //load the admin final view
         $this->loadLastView("views/cms.php"); 
-        $this->loadLastView("views/main.php");       
+        $this->loadLastView("views/main.php");      
     }
     //show a list of clients
     public function clients(){
@@ -33,16 +33,27 @@ Class UserController extends Controller {
     }
 
     //check login
-	public function pretrip(){
-
+	public function pretrip(){       
 		if($_SESSION["userId"]=="")
 		{
-			$this->go("public", "main");
-		}else
+            $this->go("public", "main");//no user
+        }else
 		{
         $this->oCurUser = User::getCurrent();
         //confirm login
-		//echo $this->oCurUser->id;
 		}
-	}
+    }
+
+    public function usertype(){
+        $this->oCurUser = User::getCurrent();
+        //confirm login
+        echo $this->oCurUser->typeId;
+        if($this->oCurUser->typeId == 2){
+            $this->go("client", "main"); //client
+
+        }else if($this->oCurUser->typeId == 1){
+            $this->go("user", "main"); //admin
+        }
+    }
+    
 }

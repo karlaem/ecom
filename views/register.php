@@ -1,8 +1,8 @@
 <div class="margins login">
     <!--login form-->
     <div class="content form">
-        <h1>Login</h1>
-        <h2>Sign in to continue</h2>
+        <h1>Register</h1>
+        <h2>Get started</h2>
         <div class="msg">
             <?php
             //check error messages
@@ -11,9 +11,10 @@
             }
             ?>
         </div>
+        <p>Have an account? <strong><a href="index.php?controller=Public&action=login">Login Now</a></strong></p>
         <form method="POST" action="index.php" id="formLogin">
         <input type="hidden" name="controller" value="public" />
-        <input type="hidden" name="action" value="doLogIn" />
+        <input type="hidden" name="action" value="doRegister" />
 
             <div class="fieldgroup required">
                 <label>Username</label>
@@ -49,7 +50,6 @@
             <div class="fieldgroup ">
                 <button type="submit" class="ctabtn">Login</button>
             </div><!--.fieldgroup-->
-            <p>Don't have an account yet? <strong><a href="index.php?controller=Public&action=register">Sign up</a></strong></p>
         </form>
     </div><!--.content-->
 </div><!--.margins-->

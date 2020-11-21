@@ -1,5 +1,4 @@
 <?php
-//country table from https://blog.radwell.codes/2013/09/iso-3166-country-list-for-mysql/
 Class Client{
     public function __construct($data)
 	{

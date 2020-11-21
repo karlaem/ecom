@@ -105,7 +105,7 @@ Class Controller{
         } else {
             $this->$variableName = $oController->content;
         }
-    } 
+	} 
 
 	public function output()
 	{

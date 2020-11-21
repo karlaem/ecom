@@ -20,6 +20,13 @@ Class PublicController extends Controller{
 		$this->loadLastView("views/main.php");
 	}
 
+	//load Register page
+	public function register(){
+		$this->loadView("views/header.php");
+		$this->loadView("views/register.php");
+		$this->loadLastView("views/main.php");
+	}
+
 	//login function secure
 	public function doLogIn(){
 		$con = DB::connect();
@@ -42,7 +49,7 @@ Class PublicController extends Controller{
 				$_SESSION["userId"]=$user["id"];
 				new User($user);
 				//go to admin
-				$this->go("user", "main"); 
+				$this->go("user", "usertype"); 
 			} else {
 				//go to login wrong password
 				$this->goMsg("public","login","error=1");
@@ -52,6 +59,31 @@ Class PublicController extends Controller{
 			$this->goMsg("public","login","error=2");
 		}
 	}
+
+	//login function secure
+	public function doRegister(){
+		$con = DB::connect();
+		//save variables from form
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+
+		$passwordhash = password_hash($password, PASSWORD_DEFAULT);
+
+		$type = 2;
+
+		//from modal user
+		//capes special characters in a string
+		$sql = "INSERT INTO users (username, password, typeId) VALUES ('".$username."', '".$passwordhash."', '".$type."')";
+
+		$results = mysqli_query($con, $sql);
+
+		//get the id and save in session
+		$lastID = mysqli_insert_id($con);
+
+		$_SESSION["userId"] = $lastID;
+		$this->go("user", "usertype"); 
+	}
+
 
 	//logout
 	public function doLogOut(){
