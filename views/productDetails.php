@@ -12,5 +12,8 @@
 <div class="productdetails">
     <?=$this->details?>
 </div>
+<div class="productimage">
+    <?=$this->image?>
+</div>
 <a class="backbtn" href="index.php?controller=product&action=products">Back</a>
 <!--End of product details-->

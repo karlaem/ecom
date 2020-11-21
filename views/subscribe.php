@@ -1,4 +1,5 @@
-<div class="margins subscribe">
+<div class="margins">
+<div class="subscribe">
     <!--login form-->
     <div class="msg">
             <?php
@@ -23,13 +24,10 @@
             <div class="fieldgroup required imageload">
                 <label>Click to add a photo</label>
                 <input class="inputfile" type="file" name="image" id="image" placeholder="Click to add image">
-                <!--<div id="thePhoto" imgSrc="assets/" ></div>-->          
-                <div class="popup">                  
-                    <p>Add your photo</p>
-                </div>                    
+                <!--<div id="thePhoto" imgSrc="assets/" ></div>-->                  
             </div><!--.fieldgroup-->
 
-            <div class="fieldgroup required">
+            <div class="fieldgroup">
                 <label>Select Country</label>
                 <select name="countryId">
                 <?php
@@ -41,11 +39,7 @@
                     }
                 }
                 ?>
-                </select>
-             
-                <div class="popup">                  
-                    <p>Add your Country</p>
-                </div>                    
+                </select>                 
             </div><!--.fieldgroup-->
         </div><!--.col-2-->
         
@@ -88,6 +82,7 @@
         </div><!--.col-1-->
         </form>
     </div><!--.content-->
+</div>
 </div><!--.margins-->
 
 <!--Validate form-->

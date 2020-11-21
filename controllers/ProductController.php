@@ -16,12 +16,17 @@ Class ProductController extends Controller{
         $this->loadLastView("views/cms.php"); 
         $this->loadLastView("views/main.php"); 
     }
-    public function product(){
+    public function product(){        
         //specific productdata
         if(isset($_GET["productid"])){
         $this->loadData(Product::getProduct($_GET["productid"]), "oProduct");
         $this->loadView("views/product.php", 1, "details"); 
         }
+        //Images
+        if(isset($_GET["productid"])){
+        $this->loadView("views/addproductImages.php", 1, "image"); 
+        }
+            
         //load products
         $this->loadView("views/productDetails.php", 1, "list"); 
         //load the header
@@ -47,6 +52,7 @@ Class ProductController extends Controller{
     //insert products from addproduct
     public function insertProduct(){
       //if I have variables in post
+      //var_dump($_POST);
 		if($_POST["strName"] && $_POST["strDescription"] && $_POST["strFeatures"] && $_POST["price"] && $_POST["category_id"] && $_POST["status_id"]){
 			$con = DB::connect();
 			//var_dump($_POST);
@@ -56,11 +62,13 @@ Class ProductController extends Controller{
 			$strFeatures = $_POST["strFeatures"];
 			$price= $_POST["price"];
 			$category_id = $_POST["category_id"];
-			$status_id = $_POST["status_id"];
+            $status_id = $_POST["status_id"];
+
+            //save new product
 			$sql = "INSERT INTO products(strName, strDescription, strFeatures, price, category_id, status_id) 
             values ('".$strName."','".$strDescription."','".$strFeatures."','".$price."','".$category_id."','".$status_id."')";
-			//echo $sql;
-			mysqli_query($con, $sql);
+            mysqli_query($con, $sql);
+    
 			$this->goMsg("product","addProduct","success=1");
 		}else{
             //echo "error";
@@ -68,6 +76,35 @@ Class ProductController extends Controller{
 			$this->go("product", "addProduct");
 		}
     }
+    public function productImages(){
+        //var_dump($_FILES);
+        if($_FILES['strphoto']){
+            $con = DB::connect();
+            //image security
+            $timestamp =round(microtime(true) * 1000);
+            $target_dir = "assets/"; 
+            $target_file = $target_dir.basename($timestamp.$_FILES["strPhoto"]["name"]);//the image
+            $ext = strtolower(pathinfo($_FILES['strPhoto']['name'], PATHINFO_EXTENSION));
+            $fileTypeAllowed = array('pdf', 'png', 'jpeg', 'jpg');
+            if(!in_array($ext, $fileTypeAllowed))
+            {
+                //echo ("file type not allowed");
+                $target_file = null;
+
+            } else {
+                move_uploaded_file($_FILES["strPhoto"]["tmp_name"], $target_file);
+            }
+            //var_dump($target_file);
+            //image
+            $sql = "INSERT INTO productphotos (nProductId, strPhoto, bPrimary) VALUES ('".$_POST["id"]."', '".$target_file."', '1')";
+            $success = mysqli_query($con, $sql);
+            
+            $this->goMsg("product","product","success=1");            
+        }else{
+			$this->goMsg("product", "product","productid=".$_POST["id"]);
+		}
+    }
+
     //delete product
     public function deleteProduct(){
         $con = DB::connect();

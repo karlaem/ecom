@@ -10,7 +10,7 @@
         }
     ?>
 </div>
-<div class="clientnames form">
+<div class="clientnames form subscribe">
     <h1>Add a product</h1>
 
     <form method="POST" action="index.php" id="formProducts">

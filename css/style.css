@@ -209,7 +209,6 @@ font-size: 21px;
 form .fieldgroup input {
 width: 100%;
 font-size: 21px;
-padding: 3px;
 border: 1px solid black;
 }
 input:focus{
@@ -267,27 +266,27 @@ font-size: 15px;
     border:2px solid #ECEEF0;
     outline: 1px solid black;
     outline-offset: -10px;
+    width: 100%;
 }
 .subscribe .imageload input{
     border: none;
 }
 .subscribe .names input{
     width: 100%;
-    margin: 10px;
 }
 .subscribe input{
     background-color: #ECEEF0;
 }
-.subscribe select{
+.subscribe select,
+.subscribe textarea{
     background-color: #ECEEF0;
     border: 1px solid black;
-    padding: 3px;
+    padding: 5px;
+    width: 100%;
 }
 .subscribe .inputfile{
     background-color: #ECEEF0;
     border: 1px solid black;
-    padding: 3px;
-    cursor: pointer;
 }
 .subscribe .ctabtn{
   width: 50%;
@@ -299,59 +298,78 @@ font-size: 15px;
   clear: both;
 }
 .col-2{
-    width: 50%;
+    width: 49%;
     float: left;
+    margin-right: 20px;
 }
 .subscribe .ctabtn{
-    width: 100%;
+    width: 50%;
+}
+.subscribe .names{
+  float: right;
+  width: 49%;
 }
 .subscribe .names input{
-  width: 45%;
-  margin: 10px;
+ margin-bottom:20px;
 }
 }
 /*client subs*/
+.hero{
+  padding: 15px;
+  background-color: #E8DED3;/*beige*/
+  min-height: 65vh;
+}
+.hero2{
+  background: #E8DED3;/*beige*/
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.herocontent a,.herocontent h1,.herocontent h2,.herocontent p{
+  margin: 15px;
+}
+.herocontent h1{
+  font-size: 4rem;
+}
 /*cms*/
 .cmsmenu{
   margin-top: 20px;
   overflow:hidden;
-  padding: 30px;
 }
 
 .cmsmenu .left{
   width: 100%;
   float: left;
-  padding: 10px;
+
 }
 .cmsmenu .left a{
   border: 1px solid black;
   width: 100%;
-  padding: 5px;
   margin-top: 5px;
   background: #F8F8FF;
   text-align: center;
 }
 @media (min-width: 1024px){
-.cmsmenu .left a{
-  border: 1px solid black;
-  width: 50%;
-  padding: 5px;
-  margin-top: 5px;
-}
-.cmsmenu .left{
-  width: 25%;
-  float: left;
-}
-.right{
-  width: 75%;
-  float: right;
-}
+  .cmsmenu .left a{
+    border: 1px solid black;
+    width: 50%;
+    margin-top: 5px;
+  }
+  .cmsmenu .left{
+    width: 25%;
+    float: left;
+  }
+  .right{
+    width: 75%;
+    float: right;
+    padding-left: 20px;
+  }
 }
 .cmsmenu .clientinfo{
-  width: 100%;
-  padding: 10px;
+  padding: 15px;
+  background-color:#F8F8FF; /*white*/
   height: auto;
-  background-color:#ECEEF0; /*wind*/
+  overflow: hidden;
 }
 .cmsmenu a{
  display: block;
@@ -366,63 +384,15 @@ font-size: 15px;
 .cmsmenu .clientnames{
   position: relative;
   min-width: 100%;
-  float: left;
-  padding: 15px;
-  background-color:#ECEEF0; /*wind*/
-  overflow: hidden;  
+  float: left; 
 }
 .cmsmenu .clientnames .clientnamelist{
   position: relative;
   width: 100%;
   float: left;
-  padding: 15px;
-  outline: 1px solid black;
-  outline-offset: -10px;
-}
-@media (min-width: 1024px){
-  .cmsmenu .clientnames .clientnamelist{
-    width: 30%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .cmsmenu .clientnames{
-    width: 100%;
-    overflow: auto;
-    outline: 1px solid black;
-    outline-offset: -10px;
-    min-height: 50vh;
-  }
-  .clientmenu{
-    position: relative;
-  }
-  
-  .cmsmenu .clientinfo{
-    position: absolute;
-    right: 20px;
-    top:10px;
-    width: 65%;
-    background-color: none;   
-  }
-}
-.hero{
-  padding: 15px;
-  background-color: #E8DED3;/*beige*/
-  min-height: 65vh;
-}
-.hero2{
-  background: linear-gradient(to left, #E8DED3 65%, #F8F8FF 35%);
-  min-height: 100vh;
-}
-.herocontent a,.herocontent h1,.herocontent h2,.herocontent p{
-  margin: 15px;
-}
-.herocontent h1{
-  font-size: 4rem;
-}
-@media (min-width: 1024px){
-  .herocontent h1{
-    font-size:6rem;
-  }
+  background: #C87D11;/*orange*/
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 #thePhoto {
 	background: #F8F8FF;
@@ -434,7 +404,49 @@ font-size: 15px;
   border: 1px solid black;
   display: inline-block;
 }
-/*list*/
+.clientmenu a{
+  padding: 10px 20px;
+}
+.cmsmenu .subscribe{
+  margin: 20px auto;
+}
+@media (min-width: 1024px){
+  .herocontent h1{
+    font-size:6rem;
+  }
+  .hero2{
+    background: linear-gradient(to left, #E8DED3 65%, #F8F8FF 35%);
+    min-height: 100vh;
+    overflow: auto;
+  }
+  .cmsmenu .clientnames .clientnamelist{
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom:0px;
+    margin-top: 0px;
+    height: 60vh;
+  }
+  .cmsmenu .clientnames{
+    width: 100%;
+    min-height: 60vh;
+  }
+  .clientmenu{
+    position: relative;
+  }  
+  .cmsmenu .clientinfo{
+    position: absolute;
+    right: 0px;
+    top:0px;
+    width: 70%;
+    background-color: none;
+    height: 100vh;  
+  }
+  .cmsmenu .subscribe{
+    margin: 0px auto;
+  }
+}
+/*list products*/
 .myList{
   margin-top: 10px;
 }
