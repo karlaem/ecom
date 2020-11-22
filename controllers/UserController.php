@@ -8,6 +8,7 @@ Class UserController extends Controller {
 	public function main(){
         //user information
         $this->loadData(User::getCurrent(), "oCurUser");
+  
         //load the header
         $this->loadView("views/header.php", 1 ,"header"); 
         //load the admin final view
@@ -55,5 +56,21 @@ Class UserController extends Controller {
             $this->go("user", "main"); //admin
         }
     }
+
+    //para el checkput****************************************************
+    public function checkLogin(){
+        if($_SESSION["userId"]=="")
+		{
+            $this->goMsg("public","login","error=4");
+        }else
+		{
+        $this->oCurUser = User::getCurrent();
+        //go to cart
+        $this->goMsg("public","login","error=1");
+        //$this->go("public", "login");//no user go to login
+		}
+    }
+
+
     
 }

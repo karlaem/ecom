@@ -29,7 +29,7 @@
             }
             ?>
         </div>
-        <span></span>
+        <span class="line"></span>
     </div><!--.nav-->
 </div><!--.margins-->
 

@@ -25,6 +25,11 @@ Class PublicController extends Controller{
 	}
 	//load patch detail
 	public function mainDetail(){
+		//client information
+		if(isset($_SESSION["userId"])){
+		$this->loadData(User::getCurrent(), "oCurUser");
+		}
+
 		$this->loadView("views/header.php",1,"nav");//add nav	
 
 		//view patches list detail
@@ -155,4 +160,16 @@ Class PublicController extends Controller{
 			$this->go("public", "main");
 		}
 	}
+	public function addToCart(){
+		//client information
+		if(isset($_SESSION["userId"])){
+			$this->loadData(User::getCurrent(), "oCurUser");
+		}
+
+		$this->loadView("views/header.php",1,"nav");//add nav	
+		$this->loadView("views/cartpage.php");
+		$this->loadLastView("views/main.php");
+        //check if login
+        //$this->go("user", "checkLogin"); 
+    }
 }

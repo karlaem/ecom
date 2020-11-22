@@ -151,13 +151,18 @@ h1,h2,.ctabtn{
 .nav a:hover, .nav a.active {
     color: #2A3380; /*darkblue*/
 }
-.nav span{
+.nav .line{
     width: 100%;
     height: 1px;
     background: black;
     position: absolute;
     bottom: 0px;
     left: 0px;
+}
+.line{
+  width: 100%;
+  height: 1px;
+  background: black;
 }
 }
 
@@ -532,6 +537,82 @@ font-size: 15px;
   width: 200px;
   text-align: center;
 }
+/*products*/
+.hero3{
+  background: #ECEEF0;
+  width: 100%;
+  padding: 15px 0px;
+}
+.title{
+padding: 15px 0px;
+}
+.title h1{
+  text-align: center;
+}
+.product-info{
+  max-width: 100%;
+}
+.product-info h2{
+  font-size: 36px;
+  padding: 5px 0px 15px 0px;
+}
+.product-image img{
+  max-width: 100%;
+  padding: 15px 0px;
+  background: #F8F8FF;/*spacewhite*/
+}
+.product-card{
+  display: grid; 
+  grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+  column-gap: 20px;
+  grid-row-gap: 20px;
+  margin-top: 15px;
+}
+
+.product-card a{
+ text-decoration: none;
+ color:black;
+  padding-right: 15px;
+}
+.product-card a:hover{
+  color:black;
+  background: #C87D11;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+ }
+ .btn-two {
+  display: inline;
+ }
+ .btn-two a:hover{
+  color:white;
+  background: black;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+ }
+
+.price{
+  display: inline;
+  float: right;
+}
+@media (min-width: 1024px){
+  .title h1{
+    padding: 15px;
+    font-size: 72px;
+  }  
+  .title{
+   display: grid;   
+   grid-template-columns: .5fr 1fr;
+   grid-template-rows: 1fr;
+  }
+  .title p{
+    padding: 15px;
+    text-align: right;
+  }  
+}
 .pImages{
-  width: 300px;
+  max-width: 300px;
 }

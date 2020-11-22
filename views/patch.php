@@ -19,5 +19,6 @@
     }
     ?>
 </div>
+<a class="backbtn" href="index.php?controller=Public&action=main">Back</a>
 </div>
 <!--End of patches-->

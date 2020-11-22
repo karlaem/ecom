@@ -7,7 +7,11 @@
             <?php
             //check error messages
             if (isset($_GET["error"])){                        
-            echo '<div class="error">something went wrong. Try Again</div>';
+                if ($_GET["error"] == 4){                        
+                    echo '<div class="error"><h2>Login to start shopping</h2</div>';
+                }else{                
+                echo '<div class="error"><h2>something went wrong. Try Again</h2</div>';
+                }
             }
             ?>
         </div>
