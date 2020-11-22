@@ -21,7 +21,7 @@
                 <h2><?=$product->strName?></h2>
                 <div class="line"></div>
                 <a class="btn-one" href="index.php?controller=public&action=mainDetail&productid=<?=$product->id?>">View Detail</a>
-                <div class="btn-two"><a href="index.php?controller=public&action=addToCart">Add to Cart</a></div>
+                <div class="btn-two"><a href="index.php?controller=public&action=addToCart&pid=<?=$product->id?>&name=<?=$product->strName?>&price=<?=$product->price?>">Add to Cart</a></div>
                 <p class="price"><?=$product->price?></p>
 
                 <div class="line"></div>

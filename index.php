@@ -12,6 +12,7 @@ include("models/Category.php");
 include("models/Status.php");
 include("models/Productimages.php");
 include("models/ProductDetail.php");
+include("models/Cart.php");
 
 //set default
 $controller = setVariable("controller", "Public");

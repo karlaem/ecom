@@ -14,6 +14,8 @@
         <p><strong>Category:</strong> <?=$product->category?></p>
         <p><strong>Status:</strong> <?=$product->inventorystatus?></p>
         <img class="pImages" src="<?=$product->strPhoto?>" alt="image<?=$product->strName?>">
+
+        <div class="btn-two"><a href="index.php?controller=public&action=addToCart&pid=<?=$product->id?>&name=<?=$product->strName?>&price=<?=$product->price?>">Add to Cart</a></div>
         <?php
         }
     }

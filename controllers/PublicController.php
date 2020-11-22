@@ -3,6 +3,7 @@ Class PublicController extends Controller{
 
 	var $content = "";
 
+
 	//load home page
 	public function main(){
 		//client information
@@ -165,11 +166,34 @@ Class PublicController extends Controller{
 		if(isset($_SESSION["userId"])){
 			$this->loadData(User::getCurrent(), "oCurUser");
 		}
-
+		
+		//send to Cart
+		if(isset($_GET["pid"])){
+		Cart::add($_GET["pid"],$_GET["name"],$_GET["price"],1);
+		$this->loadData(Cart::show(), "oCartProduct");
+		}
+		
+		
 		$this->loadView("views/header.php",1,"nav");//add nav	
 		$this->loadView("views/cartpage.php");
 		$this->loadLastView("views/main.php");
         //check if login
         //$this->go("user", "checkLogin"); 
-    }
+	}
+	public function cart(){
+		//client information
+		if(isset($_SESSION["userId"])){
+			$this->loadData(User::getCurrent(), "oCurUser");
+		}
+		$this->loadView("views/header.php",1,"nav");//add nav	
+		$this->loadView("views/cartpage.php");
+		$this->loadLastView("views/main.php");
+	}
+	public function emptyCart(){
+		$oCart = new cart();
+
+		$oCart -> emptyCart();
+		$this->go("public", "cart");
+
+	}
 }
