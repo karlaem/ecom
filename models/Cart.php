@@ -35,6 +35,16 @@ Class Cart{
 		}
 		return $count;
 		
+    }
+    
+    public function thisTotal(){
+		//loop over all items and find how many we have
+		$count = 0;
+		foreach ($_SESSION["arrCart"] as $item) {
+			$count = $count + $item["qty"];
+		}
+		print_r($count);
+		
 	}
 
 }

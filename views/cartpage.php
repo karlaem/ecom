@@ -13,16 +13,14 @@
    //print_r($this->oCartProduct);
 
    if(isset($this->oCartProduct)){
-      foreach ($this->oCartProduct as $key => $value) {
-     //print_r($value);
-     echo "<div class='cart-list'>";
-      foreach ($value as $k => $data) {
-       
-         echo "<p>", $k ,"</p";
-         echo "<p>", $data ,"</p>";
-        
-      }
-      echo "</div>";
+      foreach ($this->oCartProduct as $key => $arrItemInCart) {
+      print_r($arrItemInCart);
+      /*for($i = 0; $i < count($arrItemInCart); $i++) {
+         print_r ($arrItemInCart[$i]);
+      }*/
+     
+     /*echo "<div class='cart-list'>";
+      echo "</div>";*/
       }
       echo "<a href=''>Checkout</a>";
    }else{
