@@ -16,13 +16,22 @@ Class ClientController extends Controller {
         $this->loadLastView("views/main.php");       
     }
 
+    public function checkout(){
+        //show cart	
+        $this->loadData(Cart::show(), "oCartProduct");
+        
+		$this->loadView("views/header.php",1,"nav");//add nav	
+		$this->loadView("views/checkout.php");
+		$this->loadLastView("views/main.php");
+    }
+    
     //check login
 	public function pretrip(){
 
 		if($_SESSION["userId"]=="")
 		{
 			$this->go("public", "main");
-        }else
+		}else
 		{
         $this->oCurUser = User::getCurrent();
         //confirm login

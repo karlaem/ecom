@@ -40,8 +40,8 @@ Class UserController extends Controller {
             $this->go("public", "main");//no user
         }else
 		{
-        $this->oCurUser = User::getCurrent();
-        //confirm login
+            $this->oCurUser = User::getCurrent();//get user
+        
 		}
     }
 
@@ -55,22 +55,5 @@ Class UserController extends Controller {
         }else if($this->oCurUser->typeId == 1){
             $this->go("user", "main"); //admin
         }
-    }
-
-    //para el checkput****************************************************
-    public function checkLogin(){
-        if($_SESSION["userId"]=="")
-		{
-            $this->goMsg("public","login","error=4");
-        }else
-		{
-        $this->oCurUser = User::getCurrent();
-        //go to cart
-        $this->goMsg("public","login","error=1");
-        //$this->go("public", "login");//no user go to login
-		}
-    }
-
-
-    
+    }    
 }

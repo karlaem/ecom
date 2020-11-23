@@ -31,7 +31,7 @@
 
       }
       echo  "<p>Totalamount=" .$totalamount. "</p>";
-      echo "<a href=''>Checkout</a>";
+      echo "<a href='index.php?controller=public&action=checkout'>Checkout</a>";
    }else{
    echo"no products";
    echo "<a href='index.php?controller=public&action=main'>Home</a>";

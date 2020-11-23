@@ -192,6 +192,7 @@ Class PublicController extends Controller{
 		$this->loadView("views/cartpage.php");
 		$this->loadLastView("views/main.php");
 	}
+	//cart functions
 	public function emptyCart(){
 		$oCart = new cart();
 
@@ -204,4 +205,18 @@ Class PublicController extends Controller{
 		$oCart -> remove($_GET["pid"]);
 		$this->go("public", "cart");
 	}
+
+	public function checkout(){
+		//check if login
+		if($_SESSION["userId"]=="")
+		{
+			$this->goMsg("public","login","error=4");//go to login to checkout
+        }else
+		{
+			$this->oCurUser = User::getCurrent();//get user
+			$this->go("client", "checkout");
+        
+		}
+    }
+
 }
