@@ -11,21 +11,30 @@
    
    <?php
    //print_r($this->oCartProduct);
-
+   $totalamount=0;
    if(isset($this->oCartProduct)){
       foreach ($this->oCartProduct as $key => $arrItemInCart) {
-      print_r($arrItemInCart);
-      /*for($i = 0; $i < count($arrItemInCart); $i++) {
-         print_r ($arrItemInCart[$i]);
-      }*/
-     
-     /*echo "<div class='cart-list'>";
-      echo "</div>";*/
+      //print_r($arrItemInCart);
+      //echo $arrItemInCart['id'];
+      echo "<div class='cart-list'>";
+         echo "<p>name: " .$arrItemInCart['name']. "</p>";
+         echo "<p>price: " .$arrItemInCart['price']. "</p>";
+         echo "<p>quantity: " .$arrItemInCart['qty']. "</p>";
+         $id=$arrItemInCart['id'];
+         echo "<a href='index.php?controller=public&action=removeCart&pid=$id' >Remove</a>";
+      echo "</div>";
+      
+      //each total
+      $total= $arrItemInCart['qty'] * $arrItemInCart['price'];
+      //echo "this" .$total;
+      $totalamount = $totalamount + $total;
+
       }
+      echo  "<p>Totalamount=" .$totalamount. "</p>";
       echo "<a href=''>Checkout</a>";
    }else{
    echo"no products";
-   echo "<a href='index.php?controller=Public&action=main'>Home</a>";
+   echo "<a href='index.php?controller=public&action=main'>Home</a>";
    }
    ?>
 </div>

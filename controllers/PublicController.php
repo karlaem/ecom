@@ -181,6 +181,9 @@ Class PublicController extends Controller{
         //$this->go("user", "checkLogin"); 
 	}
 	public function cart(){
+		//show cart	
+		$this->loadData(Cart::show(), "oCartProduct");
+			
 		//client information
 		if(isset($_SESSION["userId"])){
 			$this->loadData(User::getCurrent(), "oCurUser");
@@ -194,6 +197,11 @@ Class PublicController extends Controller{
 
 		$oCart -> emptyCart();
 		$this->go("public", "cart");
+	}
+	public function removeCart(){
+		$oCart = new cart();
 
+		$oCart -> remove($_GET["pid"]);
+		$this->go("public", "cart");
 	}
 }

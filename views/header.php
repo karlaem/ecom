@@ -25,6 +25,7 @@
             }else{
             ?>  
                 <a href="index.php?controller=Public&action=login">Login</a>
+                <a href="index.php?controller=public&action=Cart">Cart</a>
             <?php
             }
             ?>

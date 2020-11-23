@@ -559,7 +559,7 @@ padding: 15px 0px;
 .product-image img{
   max-width: 100%;
   padding: 15px 0px;
-  background: #F8F8FF;/*spacewhite*/
+  background:white; /* #F8F8FF;spacewhite*/
 }
 .product-card{
   display: grid; 
