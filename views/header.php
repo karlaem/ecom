@@ -28,7 +28,10 @@
             <?php
             }
             ?>
-            <a href="index.php?controller=public&action=Cart">Cart</a>
+            <?php
+            $oCart = new cart();
+            ?>
+            <a href="index.php?controller=public&action=Cart">Cart (<?=$oCart->showCartCount()?>)</a>
         </div>
         <span class="line"></span>
     </div><!--.nav-->

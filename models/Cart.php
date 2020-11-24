@@ -1,6 +1,6 @@
 <?php
 Class Cart{
-    
+	
     public static function add($productGUID, $name, $price, $qty){
         if(isset($_SESSION["arrCart"][$productGUID])){
 			//add to the existing qty
@@ -11,7 +11,13 @@ Class Cart{
     }
     
 	public static function show(){
-		return $_SESSION["arrCart"];
+		//if empty
+		if(isset($_SESSION['arrCart'])){
+			return $_SESSION["arrCart"];	
+		}else{
+			return $_SESSION["arrCart"] = array();
+		}
+		
 	}
 
 	public function remove($productGUID){
@@ -30,8 +36,10 @@ Class Cart{
 	public function showCartCount(){
 		//loop over all items and find how many we have
 		$count = 0;
-		foreach ($_SESSION["arrCart"] as $item) {
-			$count = $count + $item["qty"];
+		if(isset($_SESSION['arrCart'])){
+			foreach ($_SESSION["arrCart"] as $item) {
+				$count = $count + $item["qty"];
+			}
 		}
 		return $count;
 		

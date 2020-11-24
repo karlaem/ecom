@@ -1,5 +1,17 @@
 <?=$this->nav?>
 <div class="margins">
+<div class="msg">
+   <?php
+   //check error messages
+   if (isset($_GET["error"])){                        
+         if ($_GET["error"] == 4){                        
+            echo '<div class="error"><h2>Login to start shopping</h2</div>';
+         }else{                
+         echo '<div class="error"><h2>something went wrong. Try Again</h2</div>';
+         }
+   }
+   ?>
+</div>
 <div class="cart-page">
    <h1>Your Cart</h1>   
    <a href="index.php?controller=public&action=emptyCart"> EmptyCart</a>
