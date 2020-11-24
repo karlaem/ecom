@@ -6,6 +6,7 @@
                 <h1>Welcome <?=$this->oCurUser->username?></h1>
                 <div class="cmsbtns">
                     <a href="#">Your Account</a>
+                    <a href="index.php?controller=client&action=clientorders">Orders</a>
                 </div><!--cmsbtns-->
             </div><!--.left-->
             <div class="right">

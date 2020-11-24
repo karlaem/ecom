@@ -31,7 +31,7 @@ Class Ordersproducts{
     //just one
     public static function getOrderProduct($id)
 	{
-        $orders = DB::query("SELECT * FROM orderproducts WHERE id=".$id);
+        $orders = DB::query("SELECT * FROM orderproducts WHERE  orderproducts.orderId=".$id);
         //if no id given
         if($orders == ""){
             $ordersArray =(object) array(
@@ -53,6 +53,6 @@ Class Ordersproducts{
 			$ordersArray[] = new Ordersproducts($order); // put this  object onto the array
         }
 		// return the list of objects
-		return $orderstArray;
+		return $ordersArray;
 	}
 }

@@ -13,6 +13,8 @@ include("models/Status.php");
 include("models/Productimages.php");
 include("models/ProductDetail.php");
 include("models/Cart.php");
+include("models/Orders.php");
+include("models/Ordersproducts.php");
 
 //set default
 $controller = setVariable("controller", "Public");
