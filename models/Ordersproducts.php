@@ -37,9 +37,10 @@ Class Ordersproducts{
             $ordersArray =(object) array(
                 "id" => "0",
                 "userId" => "0",
-                'totalCart' => 'No orders',
-                "totalAmount" => "0",
-                "date" => "0",
+                "orderId" => "0",
+                'productId' => '0',
+                'quantity' => "0",
+                'total' => "0",
                 );
             return $ordersArray;
         }

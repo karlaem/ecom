@@ -1,46 +1,41 @@
 <div class="mylist">
     <div class="list">
-        <div class="item">
+        <h2>Your purchase</h2>
         <?php
-        //from products
-        if(isset($this->oProducts)){
-        foreach ($this->oProducts as $product){
-        ?>
-        <div><h2>Name: <?=$product->strName?></h2></div>
-        <?php
-        }
-        }
-        ?>
-        <?php
-        //from ordersproducts
+        //from ordersproductsdetails
         if(isset($this->oOrders)){
-        foreach ($this->oOrders as $order){
-        ?>
-        <p>Id: <?=$order->id?></p>
-        <p>userId: <?=$order->userId?></p>
-        <p>OrderId: <?=$order->orderId?></p>
-        <p>productId: <?=$order->productId?></p>
-        <p>quantity: <?=$order->quantity?></p>
-        <p>total: <?=$order->total?></p>
-        <?php
+            foreach ($this->oOrders as $order){
+            ?>
+            <div class="item clients">
+            <table>
+            <tr>
+                <th>Order Id</th>
+                <th>Name</th>                
+                <th>Quantity</th>
+                <th>price</th>
+                <th>Cart</th>
+                <th>Total</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td><?=$order->orderId?></td>
+                <td><?=$order->strName?></td>                
+                <td><?=$order->quantity?></td>
+                <td><?=$order->price?></td>
+                <td><?=$order->total?></td>
+                <td><?=$order->totalAmount?></td>
+                <td><?=$order->date?></td>
+                <td><?=$order->inventoryproductsname?></td>
+            </tr>
+
+            </table>
+            </div>
+            <?php
+            }
+        }else{
+            echo "<div><p>You dont have any purchases</p></div>";
         }
-        }
         ?>
-        <?php
-        //from orders
-        if(isset($this->oOrders1)){
-            //print_r($this->oOrders1);
-        foreach ($this->oOrders1 as $order1){
-        ?>
-        <p>Id: <?=$order1->id?></p>
-        <p>userId: <?=$order1->userId?></p>
-        <p>total cart: <?=$order1->totalCart?></p>
-        <p>total amount: <?=$order1->totalAmount?></p>
-        <p>date: <?=$order1->date?></p>
-        <?php
-        }
-        }
-        ?>
-        </div>
     </div>
 </div>

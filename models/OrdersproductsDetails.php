@@ -1,6 +1,6 @@
 <?php
 //this left joins the product details with product order
-Class Ordersproducts{
+Class OrdersproductsDetails{
     public function __construct($data)
 	{
         $this->id = $data["id"];
@@ -9,38 +9,49 @@ Class Ordersproducts{
         $this->productId = $data["productId"];
         $this->quantity = $data["quantity"];
         $this->total = $data["total"];
-    }
-
-    // list
-    public static function getOrdersProducts()
-	{
-        //get all 
-        $orders = DB::query("SELECT * FROM orderproducts");
-
-        // acting as a factory
-        // empty array to avoid errors when no assignments were found
-		$ordersyArray = array();
-		foreach($orders as $order)
-		{
-			// create an instance / object for this SPECIFIC 
-			$ordersArray[] = new Ordersproducts($order); // put this  object onto the array
-        }
-		// return the list of objects
-		return $ordersArray;
+        $this->strName = $data["strName"];
+        $this->strDescription = $data["strDescription"];
+        $this->strFeatures = $data["strFeatures"];
+        $this->price = $data["price"];
+        $this->category_id = $data["category_id"];
+        $this->status_id = $data["status_id"];
+        $this->totalCart = $data["totalCart"];
+        $this->totalAmount = $data["totalAmount"];
+        $this->date = $data["date"];
+        $this->inventoryproductsId = $data["inventoryproductsId"];
+        $this->inventoryproductsname = $data["inventoryproductsname"];
     }
     
     //just one
-    public static function getOrderProduct($id)
+    public static function getOrderProductD($id)
 	{
-        $orders = DB::query("SELECT * FROM orderproducts WHERE  orderproducts.orderId=".$id);
+        $orders = DB::query("SELECT orderproducts.*, products.strName, products.strDescription, products.strFeatures, products.price, products.category_id, products.status_id, products.inventoryproductsId, orders.totalCart, orders.totalAmount, orders.date, inventoryproducts.name AS inventoryproductsname
+        FROM orderproducts
+        LEFT JOIN orders ON orderproducts.orderId=orders.id
+        LEFT JOIN products ON orderproducts.productId=products.id
+        LEFT JOIN inventoryproducts ON products.inventoryproductsId=inventoryproducts.id
+        WHERE orderproducts.orderId=".$id);
         //if no id given
         if($orders == ""){
             $ordersArray =(object) array(
                 "id" => "0",
                 "userId" => "0",
-                'totalCart' => 'No orders',
-                "totalAmount" => "0",
-                "date" => "0",
+                "orderId" => "0",
+                'productId' => '0',
+                'quantity' => "0",
+                'total' => "0",
+                'strName' => 'No patch',
+                'strDescription' => '',
+                'strFeatures' => '',
+                'price' => '',
+                'countryId' => '',
+                'category_id' => '',
+                'status_id' => '',
+                'totalCart' => '',
+                'totalAmount' => '',
+                'date' => '',
+                'inventoryproductsId'=>'',
+                'inventoryproductsname'=>'',
                 );
             return $ordersArray;
         }
@@ -51,7 +62,7 @@ Class Ordersproducts{
 		foreach($orders as $order)
 		{
 			// create an instance / object for this SPECIFIC 
-			$ordersArray[] = new Ordersproducts($order); // put this  object onto the array
+			$ordersArray[] = new OrdersproductsDetails($order); // put this  object onto the array
         }
 		// return the list of objects
 		return $ordersArray;

@@ -9,6 +9,7 @@ Class Product{
         $this->price = $data["price"];
         $this->category_id = $data["category_id"];
         $this->status_id = $data["status_id"];
+        $this->inventoryproductsId = $data["inventoryproductsId"];
     }
 
     //product list
@@ -44,6 +45,7 @@ Class Product{
                 'countryId' => '',
                 'category_id' => '',
                 'status_id' => '',
+                'inventoryproductsId'=>'',
                 );
             return $productArray;
         }

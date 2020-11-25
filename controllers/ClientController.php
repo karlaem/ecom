@@ -33,17 +33,17 @@ Class ClientController extends Controller {
 
         //orders information
         $this->loadData(Orders::getOrder($_SESSION["userId"]), "oOrders1");
-        //orders information
-        foreach ($this->oOrders1 as $order1){   
-        $this->loadData(Ordersproducts::getOrderProduct($order1->id), "oOrders");
-        }
-        //product information       
-        foreach ($this->oOrders as $order){        
-            $this->loadData(Product::getProduct($order->productId), "oProducts");        
-        }           
+        if(Orders::getOrder($_SESSION["userId"])){
+            //last order information
+            foreach ($this->oOrders1 as $order1){   
+            $this->loadData(OrdersproductsDetails::getOrderProductD($order1->id), "oOrders");
+            //load list of orders each time
+            $this->loadView("views/cmsOrders.php", 1, "list"); 
+            }     
+        }  
        
         //load list of orders
-        $this->loadView("views/cmsOrders.php", 1, "list"); 
+        //$this->loadView("views/cmsOrders.php", 1, "list"); 
         //user information
         $this->loadData(User::getCurrent(), "oCurUser");
         //load the header
@@ -68,6 +68,7 @@ Class ClientController extends Controller {
             //variables
             $userId=$_SESSION["userId"];
             $totalamount=0;
+            //from stackoverflow
             $date = date('Y/m/d');
 
             //variables in cart
@@ -88,6 +89,7 @@ Class ClientController extends Controller {
             //echo $sql;
             $success = mysqli_query($con, $sql);
             if ($success){
+                //from https://www.w3schools.com/php/php_mysql_insert_lastid.asp
                 $last_id = $con->insert_id;
             
                 //another so I dont confuse myself

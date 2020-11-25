@@ -33,14 +33,15 @@ Class Orders{
         $orders = DB::query("SELECT * FROM orders WHERE orders.userId=".$id);
         //if no id given
         if($orders == ""){
-            $ordersArray =(object) array(
+           /* $ordersArray =(object) array(
                 "id" => "0",
                 "userId" => "0",
-                'totalCart' => 'No orders',
+                'totalCart' => '0',
                 "totalAmount" => "0",
                 "date" => "0",
                 );
-            return $ordersArray;
+            return $ordersArray;*/
+            return null;
         }
 
         // acting as a factory

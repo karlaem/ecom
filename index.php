@@ -15,6 +15,8 @@ include("models/ProductDetail.php");
 include("models/Cart.php");
 include("models/Orders.php");
 include("models/Ordersproducts.php");
+include("models/OrdersproductsDetails.php");
+include("models/Inventoryproducts.php");
 
 //set default
 $controller = setVariable("controller", "Public");
