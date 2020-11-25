@@ -23,9 +23,10 @@
             foreach ($this->oProduct as $product){
             ?>
             <div class="product-info">           
+                <a href="index.php?controller=public&action=mainDetail&productid=<?=$product->id?>">
                 <div class="product-image">
-                    <img  src="<?=$product->strPhoto?>" alt="image<?=$product->strName?>">
-                </div>
+                    <img src="<?=$product->strPhoto?>" alt="image<?=$product->strName?>">
+                </div></a>
                 <h2><?=$product->strName?></h2>
                 <div class="line"></div>
                 <a class="btn-one" href="index.php?controller=public&action=mainDetail&productid=<?=$product->id?>">View Detail</a>
