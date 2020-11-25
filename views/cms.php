@@ -8,6 +8,7 @@
                     <a href="index.php?controller=user&action=clients">Our Clients</a>
                     <a href="index.php?controller=product&action=products">Our Products</a>
                     <a href="index.php?controller=product&action=addProduct">Add Product</a>
+                    <a href="index.php?controller=user&action=clientorders">Orders</a>
                 </div><!--cmsbtns-->
             </div><!--.left-->
             <div class="right">

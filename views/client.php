@@ -11,10 +11,12 @@
         <p><?=$client->email?></p>
         <p><?=$client->age?></p>
         <p><?=$client->country?></p>
+        <a href="index.php?controller=user&action=clientorders&custumerId=<?=$client->nUsersID?>">view orders by client</a>
         <?php
         }
     }
     ?>
+    
 </div>
 </div>
 

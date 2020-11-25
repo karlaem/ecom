@@ -1,6 +1,7 @@
 <?php
 //here I set up the functions to load information
 Class Controller{
+	var $bLastViewRun = false;
     /* default: the load view appends the contents of the included file into $this->content
 	
 	params: $viewFile = the file we want to load

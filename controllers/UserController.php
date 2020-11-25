@@ -26,8 +26,27 @@ Class UserController extends Controller {
         //specific client data
         if(isset($_GET["clientid"])){
             $this->loadData(Client::getClient($_GET["clientid"]), "oClient");
-            $this->loadView("views/client.php", 1, "list"); 
+            $this->loadView("views/client.php", 1, "list");             
         }
+        //load the header
+        $this->loadView("views/header.php", 1 ,"header"); 
+        //load the admin final view
+        $this->loadLastView("views/cms.php"); 
+        $this->loadLastView("views/main.php");  
+    }
+
+     //show a list of orders
+     public function clientorders(){
+        //if custumer id
+        if(isset($_GET["custumerId"])){
+        //list of orders
+        $this->loadData(OrdersAdmin::getOrderUser($_GET["custumerId"]), "oOrders");
+        }else if(!isset($_GET["custumerId"])){
+        //list of orders
+        $this->loadData(OrdersAdmin::getOrders(), "oOrders");
+        }
+        //load clients
+        $this->loadView("views/cmsOrdersAdmin.php", 1, "list"); 
         //load the header
         $this->loadView("views/header.php", 1 ,"header"); 
         //load the admin final view

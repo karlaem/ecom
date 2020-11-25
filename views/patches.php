@@ -1,6 +1,6 @@
 <div class="hero3">
 <div class="margins">
-    <div class="products">
+    <div class="products" id="patches">
     <div class="line"></div>
         <div class="title">            
             <h1>Patches</h1>     
@@ -8,6 +8,13 @@
             Wear your most meaningful memories, your dreams, your projects your lifestyle.</p>            
         </div><!--.title-->
         <div class="line"></div>
+
+        <div class="categories">
+            <a href="">All</a>
+            <a href="">Hiking</a>
+            <a href="">Featured</a>
+            <a href="">Movies</a>
+        </div><!--.categories-->
 
         <div class="product-card">
         <?php

@@ -105,7 +105,7 @@
                 <label>Street 1</label>
                 <input type="text" name="street1" value="" placeholder="your street"/>
                 <div class="popup">                  
-                    <p>Add your email</p>
+                    <p>Add street</p>
                 </div> 
                 </div><!--.fieldgroup-->
 

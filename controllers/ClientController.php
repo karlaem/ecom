@@ -105,15 +105,42 @@ Class ClientController extends Controller {
                     values ('".$userId."','".$last_id."','".$productId."','".$quantity."','".$total."')";
                     $success3 = mysqli_query($con, $sql);
                 }
+                //saved in cart
                 if($success3){
                     //echo "New record created successfully.";
-                    $this->goMsg("client","checkout","success=2");
+                   // $this->goMsg("client","checkout","success=2");
                     //empty cart
                     $oCart = new cart();
-		            $oCart -> emptyCart();
+                    $oCart -> emptyCart();
+
+                    //if I have variables in post save client checkout
+                    if($_POST["first_name"]&& $_POST["last_name"]){
+
+                        //save variables from form
+                        $first_name = $_POST["first_name"];
+                        $last_name = $_POST["last_name"];
+                        $email = $_POST["email"];
+                        $phone= $_POST["phone"];
+                        //$age = $_POST["age"];
+                        $city = $_POST["city"];
+                        $street1 = $_POST["street1"];
+                        $street2 = $_POST["street2"];
+                        $zipcode = $_POST["zipcode"];
+                        $countryId = $_POST["countryId"];
+                        $nUserId = $_SESSION["userId"];
+                        $sql = "INSERT INTO clients(first_name, last_name, email, phone,nUsersId, city,street1, street2, zipcode, countryId) 
+                        values ('".$first_name."','".$last_name."','".$email."','".$phone."','".$nUserId ."','".$city."','".$street1."','".$street2."','".$zipcode."','".$countryId."')";
+                        //echo $sql;
+                        mysqli_query($con, $sql);
+                        $this->goMsg("client","checkout","success=2");
+                    }else{
+                        //echo "error inserting client";
+                        $this->goMsg("client","checkout","error=3");
+                    }
+
                 }else{
                     //echo "error inserting ordersproducts";
-                    $this->goMsg("client","checkout","error=2");
+                   $this->goMsg("client","checkout","error=2");
                 }
 
             }else{
@@ -126,7 +153,7 @@ Class ClientController extends Controller {
         
 
     }
-    
+
     //check login
 	public function pretrip(){
 

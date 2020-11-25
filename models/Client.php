@@ -12,6 +12,7 @@ Class Client{
         $this->code = $data["code"];
         $this->country = $data["country"];
         $this->phone = $data["phone"];
+        $this->nUsersID = $data["nUsersID"];
     }
 
     //client list
