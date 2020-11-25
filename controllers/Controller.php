@@ -76,32 +76,6 @@ Class Controller{
 
 		header($goingTo);
     }
-    public function loadRoute($controller, $action, $variableName="content", $append=0)
-    {
-       //echo "<h1>Opened Controller: $controller";
-        // create the controller name and the path to the controller file and save to varibales
-        $controllerName = $controller."Controller"; // PublicController
-        $controllerFile = "controllers/".$controllerName.".php";
-        if(file_exists($controllerFile))
-        {
-
-            include_once($controllerFile);
-            // you've created a new instance of the controller, just for this route you are calling
-            $oController = new $controllerName();
-            $oController->$action();
-            // therefore it has its own method and properties, as if you had called it directly. 
-            // we know that the $oController->youraction() process creates and appends to $this->content... 
-            //var_dump($oController);
-        } 
-        // save whatever we got from the oController content into a variable
-        if ($append && isset($this->$variableName))
-        {
-            $this->$variableName .= $oController->content;
-        } else {
-            $this->$variableName = $oController->content;
-        }
-	} 
-
 	public function output()
 	{
 		echo $this->content;
