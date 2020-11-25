@@ -14,6 +14,7 @@
             <a href="index.php?controller=Public&action=main&categoryId=3#patches">Hiking</a>
             <a href="index.php?controller=Public&action=main&categoryId=1#patches">Featured</a>
             <a href="index.php?controller=Public&action=main&categoryId=5#patches">Movies</a>
+            <a href="index.php?controller=Public&action=main&categoryId=4#patches">Travel</a>
         </div><!--.categories-->
 
         <div class="product-card">
