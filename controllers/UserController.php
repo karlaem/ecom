@@ -1,10 +1,11 @@
 <?php
-
+//this is what the Admin do and see
 Class UserController extends Controller {
     //set default to prevent error on views
     var $content = "";
     var $list="";
 
+    //go to cms page
 	public function main(){
         //user information
         $this->loadData(User::getCurrent(), "oCurUser");
@@ -15,6 +16,7 @@ Class UserController extends Controller {
         $this->loadLastView("views/cms.php"); 
         $this->loadLastView("views/main.php");      
     }
+
     //show a list of clients
     public function clients(){
         //Client list
@@ -45,6 +47,7 @@ Class UserController extends Controller {
 		}
     }
 
+    //check if is admin or client
     public function usertype(){
         $this->oCurUser = User::getCurrent();
         //confirm login

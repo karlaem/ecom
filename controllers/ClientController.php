@@ -1,5 +1,5 @@
 <?php
-
+//this controls what my client do and see
 Class ClientController extends Controller {
     //set default to prevent error on views
     var $content = "";
@@ -9,14 +9,14 @@ Class ClientController extends Controller {
     public function main(){
         //user information
         $this->loadData(User::getCurrent(), "oCurUser");
-        //load the header
+        //load the header in variable called header, so I can move it inside the hero
         $this->loadView("views/header.php", 1 ,"header"); 
         //load the admin final view
         $this->loadLastView("views/cmsClient.php"); 
         $this->loadLastView("views/main.php");       
     }
 
-    //checkout page
+    //checkout Form page
     public function checkout(){
         //get countries data
         $this->loadData(Countries::getCountries(), "oCountry");
@@ -28,6 +28,7 @@ Class ClientController extends Controller {
 		$this->loadLastView("views/main.php");
     }
 
+    //for client cmsOrders, where the client reviews the purchases
     public function clientorders(){
 
         //orders information
@@ -52,6 +53,7 @@ Class ClientController extends Controller {
         $this->loadLastView("views/main.php");  
     }
 
+    //saves order in database
     public function sendOrder(){
         /*echo "cart";
         print_r($_SESSION["arrCart"]);

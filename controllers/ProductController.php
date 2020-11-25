@@ -1,10 +1,11 @@
 <?php
+//this controls the patches information
 Class ProductController extends Controller{
     var $list="";
     var $details="";
     var $content = "";
 
-     //products
+     //products list
      public function products(){
         //product data
         $this->loadData(Product::getProducts(), "oProducts");
@@ -16,7 +17,7 @@ Class ProductController extends Controller{
         $this->loadLastView("views/cms.php"); 
         $this->loadLastView("views/main.php"); 
     }
-    //prooduct details
+    //product details on cms
     public function product(){    
         //image data
         if(isset($_GET["productid"])){
@@ -39,6 +40,8 @@ Class ProductController extends Controller{
         $this->loadLastView("views/cms.php"); 
         $this->loadLastView("views/main.php"); 
     }
+    
+    //add product form on cms
     public function addProduct(){
         //get list of inventory status
         $this->loadData(Status::getAllStatus(), "oStatus");
@@ -80,6 +83,7 @@ Class ProductController extends Controller{
 			$this->go("product", "addProduct");
 		}
     }
+    //add product images
     public function productImages(){
         //var_dump($_FILES);
         if($_FILES['strPhoto']['name']){

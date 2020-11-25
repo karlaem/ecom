@@ -1,8 +1,8 @@
 <?php
+//this is the home page and that people see without the need to be logged in
 Class PublicController extends Controller{
-
+	//variables
 	var $content = "";
-
 
 	//load home page
 	public function main(){
@@ -119,7 +119,6 @@ Class PublicController extends Controller{
 
 	//logout
 	public function doLogOut(){
-
 		unset($_SESSION["userId"]);
 		$this->go("public", "main");
 	}
@@ -161,6 +160,7 @@ Class PublicController extends Controller{
 			$this->go("public", "main");
 		}
 	}
+	//add a product to the cart
 	public function addToCart(){
 		//client information
 		if(isset($_SESSION["userId"])){
@@ -173,13 +173,13 @@ Class PublicController extends Controller{
 		$this->loadData(Cart::show(), "oCartProduct");
 		}
 		
-		
+		//shows user cart
 		$this->loadView("views/header.php",1,"nav");//add nav	
 		$this->loadView("views/cartpage.php");
-		$this->loadLastView("views/main.php");
-        //check if login
-        //$this->go("user", "checkLogin"); 
+		$this->loadLastView("views/main.php"); 
 	}
+
+	//cart page information
 	public function cart(){
 		//show cart	
 		$this->loadData(Cart::show(), "oCartProduct");
@@ -206,6 +206,7 @@ Class PublicController extends Controller{
 		$this->go("public", "cart");
 	}
 
+	//go to login before checkout
 	public function checkout(){
 		//check if login
 		if($_SESSION["userId"]=="")
