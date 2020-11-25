@@ -10,10 +10,10 @@
         <div class="line"></div>
 
         <div class="categories">
-            <a href="">All</a>
-            <a href="">Hiking</a>
-            <a href="">Featured</a>
-            <a href="">Movies</a>
+            <a href="index.php?controller=Public&action=main#patches">All</a>
+            <a href="index.php?controller=Public&action=main&categoryId=3#patches">Hiking</a>
+            <a href="index.php?controller=Public&action=main&categoryId=1#patches">Featured</a>
+            <a href="index.php?controller=Public&action=main&categoryId=5#patches">Movies</a>
         </div><!--.categories-->
 
         <div class="product-card">

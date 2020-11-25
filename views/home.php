@@ -8,7 +8,7 @@
             <div class="left">
             <h2>Keep What is meaningful</h2>
             <h1>Hand made custom Patches</h1>
-            <p>Know more by subscribing to our newsletter below:</p>
+            <p>Wear patches about places you love with custumazible information</p>
             <a href="#patches" class="ctabtn">Shop now</a>
             </div>
         </div>

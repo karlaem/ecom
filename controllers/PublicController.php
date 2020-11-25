@@ -14,14 +14,23 @@ Class PublicController extends Controller{
 		$this->loadView("views/header.php",1,"nav");//add nav
 		$this->loadView("views/home.php");//go home
 
-		//view patches list
-		$this->loadData(ProductDetail::getProducts(), "oProduct");
-		$this->loadView("views/patches.php");
+		//view patches by category
+		if(isset($_GET["categoryId"])){
+			$this->loadData(ProductDetail::getProductCategory($_GET["categoryId"]), "oProduct");
+			$this->loadView("views/patches.php");
+		}else{
+			//view patches list
+			$this->loadData(ProductDetail::getProducts(), "oProduct");
+			$this->loadView("views/patches.php");
+		}
 
 		//add subscribe form
-		$this->loadData(Countries::getCountries(), "oCountry");
-		$this->loadView("views/subscribe.php"); 
+		/*$this->loadData(Countries::getCountries(), "oCountry");
+		$this->loadView("views/subscribe.php"); */
 
+		//add footer
+		$this->loadView("views/footer.php");
+		//add main view
 		$this->loadLastView("views/main.php");
 	}
 	//load patch detail

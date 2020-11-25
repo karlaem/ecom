@@ -1,4 +1,7 @@
-<a href="index.php?controller=user&action=clientorders">All Orders</a>
+<div class="ordersmenu">
+    <a href="index.php?controller=user&action=clientorders">All Orders</a>
+    <a href="index.php?controller=user&action=clients">Orders by clients</a>
+</div>
 <div class="mylist">
     <div class="list">
         <h2>Orders</h2>

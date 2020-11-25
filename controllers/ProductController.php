@@ -153,7 +153,7 @@ Class ProductController extends Controller{
     //save edit
     public function updateProduct(){
          //if I have variables in post
-        var_dump($_POST);
+        //var_dump($_POST);
 		if($_POST["id"] && $_POST["strName"] && $_POST["strDescription"] && $_POST["strFeatures"] && $_POST["price"] && $_POST["category_id"] && $_POST["status_id"]){
 			$con = DB::connect();
 
