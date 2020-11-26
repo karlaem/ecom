@@ -6,6 +6,9 @@ Class PublicController extends Controller{
 
 	//load home page
 	public function main(){
+		//add testimonial
+		$this->loadView("views/testimonials.php",1,"testimonial");
+
 		//client information
 		if(isset($_SESSION["userId"])){
 		$this->loadData(User::getCurrent(), "oCurUser");
@@ -33,23 +36,34 @@ Class PublicController extends Controller{
 		//add main view
 		$this->loadLastView("views/main.php");
 	}
+
 	//load patch detail
 	public function mainDetail(){
+
+			
+
 		//client information
 		if(isset($_SESSION["userId"])){
-		$this->loadData(User::getCurrent(), "oCurUser");
+			$this->loadData(User::getCurrent(), "oCurUser");
 		}
-
 		$this->loadView("views/header.php",1,"nav");//add nav	
 
 		//view patches list detail
 		$this->loadData(ProductDetail::getProduct($_GET["productid"]), "oProduct");
 		$this->loadView("views/patch.php");//go detail view	
 
+		//add review form
+		$this->loadView("views/addReview.php");
+		//add testimonial
+		$this->loadView("views/testimonials.php");
+		
 		//client information
 		if(isset($_SESSION["userId"])){
-		$this->loadData(User::getCurrent(), "oCurUser");
-		}	
+			$this->loadData(User::getCurrent(), "oCurUser");
+		}
+
+		//add footer
+		$this->loadView("views/footer.php");
 
 		$this->loadLastView("views/main.php");
 	}

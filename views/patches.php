@@ -45,3 +45,4 @@
 </div><!--.margins-->
 </div>
 <!--End of patches-->
+<?=$this->testimonial?>

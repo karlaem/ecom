@@ -153,6 +153,40 @@ Class ClientController extends Controller {
         
 
     }
+      //checkout Form page
+      public function doReview(){     
+        print_r($_POST);
+        //image security
+		$timestamp =round(microtime(true) * 1000);
+        $target_dir = "assets/"; 
+        $target_file = $target_dir.basename($timestamp.$_FILES["image"]["name"]);
+        $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+		$fileTypeAllowed = array('pdf', 'png', 'jpeg', 'jpg');
+		if(!in_array($ext, $fileTypeAllowed))
+        {
+            //echo ("file type not allowed");
+            $target_file = null;
+
+        } else {
+            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        }
+        //if I have variables in post
+		if($_POST["strDescription"]){
+            //connect to database
+            $con = DB::connect();
+            //save variables
+            $userId=$_SESSION["userId"];
+            $review =$_POST["strDescription"];
+            $productId= $_POST["productId"];
+
+            $sql="";
+            /*********************************************************************************************** */
+            //mysqli_query($con, $sql);
+            //$this->goMsg("public","mainDetail","productid=".$productId."&success=1");
+        }
+        //add review
+        //$this->goMsg("public","mainDetail","productid=".$productId."&error=1");
+    }
 
     //check login
 	public function pretrip(){

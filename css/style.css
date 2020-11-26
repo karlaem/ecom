@@ -120,6 +120,14 @@ h1,h2,.ctabtn{
 .nav {
     display: none;
 }
+.footer .pages a{
+  display: inline-block;    
+  text-decoration: none;
+  font-size: 21px;
+  color: black;
+  font-family: 'Unica One', cursive; 
+  padding-left: 20px;
+}
 
 @media (min-width: 1024px) {
   .nav, .footer {  
@@ -584,6 +592,7 @@ font-size: 15px;
   background: #ECEEF0;
   width: 100%;
   padding: 15px 0px;
+  padding-bottom: 50px;
 }
 .title{
 padding: 15px 0px;
@@ -602,7 +611,8 @@ padding: 15px 0px;
 .product-image img{
   max-width: 100%;
   padding: 15px 0px;
-  height: 250px;
+  /*height: 250px;*/
+  background-size: cover;
 }
 .product-image{
   margin: 0 auto;
@@ -730,10 +740,10 @@ table th {
 .herodetail{
   background-color: #F8F8FF;
   width: 100%;
-  height: 100%;
-  overflow: auto;
+  padding-bottom: 20px;
 }
 .pImages{
+  padding-top: 20px;
   max-width: 100%;
   height: auto;
 }
@@ -771,6 +781,13 @@ table th {
   margin-top: 50px;
 }
 @media (min-width: 1024px){
+  .herodetail{
+    background-color: #F8F8FF;
+    width: 100%;
+    min-height: 80vh;
+    padding-bottom: 20px;
+    overflow: auto;
+  }
   .productdetail{
     margin-top: 15px;
   }
@@ -799,6 +816,104 @@ table th {
     width: 100%;
     object-fit: cover;
     height: auto;
+    background-size: cover;
   }
- 
+}
+.heroblue{
+  background-color: #2A3380;
+  width: 100%;
+  min-height: 70%;
+  padding-bottom: 20px;
+
+}
+.testimonialcard{
+  padding-top: 60px;
+  margin: 0 auto;
+  width: 100%;
+}
+/*slidewhow*/
+.reviews{
+  background-color: #F8F8FF;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.revimg{
+  display: grid; 
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  padding-top: 15px;
+}
+.revimg img{
+  max-width: 100%;
+}
+.Theading{
+  font-size: 3rem;
+  text-align: center;
+  background: #C87D11;
+  margin-left: -15px;
+  margin-right: -15px;
+ border-radius: 5px;
+  z-index: 2;
+}
+.heroslide{
+  display: grid; 
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px){
+  .Theading{
+    font-size: 72px;
+    margin-top: 15px;
+    text-align: center;
+    background: #C87D11;
+  }
+.heroslide{
+  display: grid; 
+  grid-template-columns: .5fr 1fr;
+  text-align: left;
+  align-items: center;
+}
+.review{
+  max-width: 80%;
+}
+.review p{
+  font-size: 21px;
+  padding-right: 15px;
+}
+.review h2{
+  font-size: 36px;
+}
+.revimg{
+  display: grid; 
+  align-items: center;
+  justify-items: center;
+  padding: 50px;
+}
+.heroblue{
+  background-color: #2A3380;
+  width: 100%;
+  min-height: 70%;
+  padding-bottom: 50px;
+
+}
+}
+#formReview select,
+#formReview  textarea{
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;
+}
+#formReview .fieldgroup{
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 1024px){
+  #formReview .fieldgroup{
+    width: 50%;
+    margin: 0 auto;
+  }
 }
