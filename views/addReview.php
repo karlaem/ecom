@@ -1,6 +1,17 @@
 <div class="hero3">
     <div class="margins">
         <div class="testimonialcard"> 
+        <div class="msg">
+            <?php
+            //check error messages
+            if (isset($_GET["error"])){                        
+            echo '<div class="error"><h2>Something went wrong. Try Again</h2</div>';
+            }
+            if (isset($_GET["success"])){                        
+                echo '<div class="success"><h2>Thank you! your review was saved</h2></div>';
+                }
+            ?>
+        </div>
                     <h1 class="Theading">Write a Review</h1>
                     <div class="reviews">   
 

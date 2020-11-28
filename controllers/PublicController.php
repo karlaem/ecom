@@ -174,7 +174,8 @@ Class PublicController extends Controller{
 			$phone= $_POST["phone"];
 			$age = $_POST["age"];
 			$countryId = $_POST["countryId"];
-			$sql = "INSERT INTO clients(first_name, last_name, email, phone, age, countryId, image) values ('".$first_name."','".$last_name."','".$email."','".$phone."','".$age."','".$countryId."','".$target_file."')";
+			$sql = "INSERT INTO clients(first_name, last_name, email, phone, age, countryId, image) 
+			values ('".$first_name."','".$last_name."','".$email."','".$phone."','".$age."','".$countryId."','".$target_file."')";
 			//echo $sql;
 			mysqli_query($con, $sql);
 			$this->goMsg("public","main","success=1");

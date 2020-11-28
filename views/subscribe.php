@@ -2,16 +2,16 @@
 <div class="subscribe">
     <!--login form-->
     <div class="msg">
-            <?php
-            //check error messages
-            if (isset($_GET["error"])){                        
-            echo '<div class="error"><h2>something went wrong. Try Again</h2</div>';
+        <?php
+        //check error messages
+        if (isset($_GET["error"])){                        
+        echo '<div class="error"><h2>something went wrong. Try Again</h2</div>';
+        }
+        if (isset($_GET["success"])){                        
+            echo '<div class="success"><h2>Thank you! your subscribtion was saved</h2></div>';
             }
-            if (isset($_GET["success"])){                        
-                echo '<div class="success"><h2>Thank you! your subscribtion was saved</h2></div>';
-                }
-            ?>
-        </div>
+        ?>
+    </div>
     <div class="content form">
         <h1>Subscribe</h1>
         <h2>Subscribe to be the first to recibe news and discounts about out latest products.</h2>

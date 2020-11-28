@@ -154,8 +154,8 @@ Class ClientController extends Controller {
 
     }
       //checkout Form page
-      public function doReview(){     
-        print_r($_POST);
+    public function doReview(){     
+        //print_r($_POST);
         //image security
 		$timestamp =round(microtime(true) * 1000);
         $target_dir = "assets/"; 
@@ -179,13 +179,19 @@ Class ClientController extends Controller {
             $review =$_POST["strDescription"];
             $productId= $_POST["productId"];
 
-            $sql="";
-            /*********************************************************************************************** */
-            //mysqli_query($con, $sql);
-            //$this->goMsg("public","mainDetail","productid=".$productId."&success=1");
+            $sql = "INSERT INTO reviews(userId, productId, strDescription, image) 
+            values ('".$userId."','".$productId."','".$review."','".$target_file."')";
+            //echo $sql;
+           
+            $success = mysqli_query($con, $sql);
+            if($success){
+                //echo "success";
+                $this->goMsg("public","mainDetail","productid=".$productId."&success=1");
+            }else{
+            //error
+            $this->goMsg("public","mainDetail","productid=".$productId."&error=1");
+            }            
         }
-        //add review
-        //$this->goMsg("public","mainDetail","productid=".$productId."&error=1");
     }
 
     //check login
