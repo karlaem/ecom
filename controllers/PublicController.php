@@ -38,10 +38,8 @@ Class PublicController extends Controller{
 	}
 
 	//load patch detail
-	public function mainDetail(){
-
-			
-
+	public function mainDetail(){		
+ 
 		//client information
 		if(isset($_SESSION["userId"])){
 			$this->loadData(User::getCurrent(), "oCurUser");
@@ -52,13 +50,19 @@ Class PublicController extends Controller{
 		$this->loadData(ProductDetail::getProduct($_GET["productid"]), "oProduct");
 		$this->loadView("views/patch.php");//go detail view	
 
-		//add review form
-		$this->loadView("views/addReview.php");
-		//add testimonial
-		$this->loadView("views/testimonials.php");
 		
 		//client information
 		if(isset($_SESSION["userId"])){
+			//add review form
+			$this->loadView("views/addReview.php");
+
+			//add testimonial
+			$this->loadData(Reviews::getReview($_GET["productid"]), "oReviews");
+			if($this->oReviews){
+			$this->loadView("views/testimonialsClient.php");
+			//$this->loadView("views/testimonials.php");
+			}
+		
 			$this->loadData(User::getCurrent(), "oCurUser");
 		}
 
