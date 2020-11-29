@@ -47,8 +47,8 @@ Class UserController extends Controller {
         }
         
         //list of orders this break something
-        $this->loadData(OrdersAdmin::getOrders(), "oOrders");
-        DB::debug();
+        //$this->loadData(OrdersAdmin::getOrders(), "oOrders");
+
         //load clients
         $this->loadView("views/cmsOrdersAdmin.php", 1, "list");         
 
