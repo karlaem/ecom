@@ -13,7 +13,6 @@ Class DB{
     
     //run query
 	static public function query($sql){
-
 		$oDB = new DB();
 
 		if($oDB->debug)
@@ -37,6 +36,6 @@ Class DB{
 
 	public function debug($sql)
 	{
-		echo "<script>console.log('$sql')</script>";
+		//echo "<script>console.log('$sql')</script>";
 	}
 }

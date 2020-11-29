@@ -38,7 +38,7 @@ Class OrdersAdmin{
 			$ordersArray[] = new OrdersAdmin($order); // put this  object onto the array
         }
 		// return the list of objects
-		return $ordersArray;
+		//return $ordersArray;
     }
     
     //Sort by order by user if

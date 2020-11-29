@@ -39,19 +39,24 @@ Class UserController extends Controller {
      public function clientorders(){
         //if custumer id
         if(isset($_GET["custumerId"])){
-        //list of orders
-        $this->loadData(OrdersAdmin::getOrderUser($_GET["custumerId"]), "oOrders");
-        }else if(!isset($_GET["custumerId"])){
-        //list of orders
-        $this->loadData(OrdersAdmin::getOrders(), "oOrders");
+            //echo "here";
+            //list of orders
+            $this->loadData(OrdersAdmin::getOrderUser($_GET["custumerId"]), "oOrders");
+            //load clients
+            $this->loadView("views/cmsOrdersAdmin.php", 1, "list");  
         }
+        
+        //list of orders this break something
+        $this->loadData(OrdersAdmin::getOrders(), "oOrders");
+        DB::debug();
         //load clients
-        $this->loadView("views/cmsOrdersAdmin.php", 1, "list"); 
+        $this->loadView("views/cmsOrdersAdmin.php", 1, "list");         
+
         //load the header
         $this->loadView("views/header.php", 1 ,"header"); 
         //load the admin final view
         $this->loadLastView("views/cms.php"); 
-        $this->loadLastView("views/main.php");  
+        $this->loadLastView("views/main.php"); 
     }
 
     //check login
@@ -70,7 +75,7 @@ Class UserController extends Controller {
     public function usertype(){
         $this->oCurUser = User::getCurrent();
         //confirm login
-        echo $this->oCurUser->typeId;
+        //echo $this->oCurUser->typeId;
         if($this->oCurUser->typeId == 2){
             $this->go("client", "main"); //client
 

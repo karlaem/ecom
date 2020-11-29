@@ -61,7 +61,7 @@ Class Controller{
 			echo $goingTo;
 			die();
 		}
-
+		//echo "here";
 		header($goingTo);
     }
 	//for get errors

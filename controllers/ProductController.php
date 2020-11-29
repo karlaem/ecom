@@ -48,7 +48,7 @@ Class ProductController extends Controller{
         //get list of categories
         $this->loadData(Category::getCategories(), "oCategory");
         //add product
-        $this->loadView("views/addProduct.php",1,"list");
+        $this->loadView("views/addProduct.php", 1 ,"list");
         //load the header
         $this->loadView("views/header.php", 1 ,"header"); 
         //load the admin final view
@@ -172,7 +172,7 @@ Class ProductController extends Controller{
 			mysqli_query($con, $sql);
 			$this->goMsg("product","product","productid=".$id."&success=1");
 		}else{
-            echo "error";
+            //echo "error";
 			//goback
 			$this->goMsg("product","editProduct","productid=".$id."&error=1");
 		}

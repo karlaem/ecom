@@ -17,7 +17,7 @@ var Validate = function(){
             if (field[field.selectedIndex])
             {
                 fieldValue = field[field.selectedIndex].value;
-                console.log(fieldValue)
+                //console.log(fieldValue)
             }
             
             console.log(fieldValue);
