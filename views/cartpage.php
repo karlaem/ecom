@@ -14,7 +14,7 @@
 </div>
 <div class="cart-page">
    <h1>Your Cart</h1>   
-   <a href="index.php?controller=public&action=emptyCart"> EmptyCart</a>
+   <a href="index.php?controller=public&action=emptyCart">Empty Cart</a>
 
    <?php
    $oCart = new cart();
@@ -43,7 +43,7 @@
 
       }
       echo  "<p>Totalamount=" .$totalamount. "</p>";
-      echo "<a href='index.php?controller=public&action=checkout'>Checkout</a>";
+      echo "<a id='checkout' href='index.php?controller=public&action=checkout'>Checkout</a>";
    }else{
    echo"no products";
    echo "<a href='index.php?controller=public&action=main'>Home</a>";

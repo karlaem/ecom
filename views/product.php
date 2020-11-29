@@ -21,7 +21,7 @@
         foreach ($this->oImage as $image){
         if($image->id != 0){
             ?>
-            <img class="pImages" src="<?=$image->strPhoto?>" alt="image<?=$image->strPhoto?>">
+            <img class="addproductimg" src="<?=$image->strPhoto?>" alt="image<?=$image->strPhoto?>">
             <?php
         }else{
         ?>

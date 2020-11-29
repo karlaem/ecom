@@ -297,6 +297,7 @@ font-size: 15px;
     outline: 1px solid black;
     outline-offset: -10px;
     width: 100%;
+    margin-bottom: 15px;
 }
 .subscribe .imageload input{
     border: none;
@@ -341,6 +342,9 @@ font-size: 15px;
 }
 .subscribe .names input{
  margin-bottom:20px;
+}
+.productimage{
+  margin: 15px 0px;
 }
 }
 /*client subs*/
@@ -411,6 +415,7 @@ font-size: 15px;
   overflow: hidden;
   padding:0px 10px;
 }
+
 @media (min-width: 1024px){
   .herocontent .left{
     width: 60%;
@@ -437,6 +442,7 @@ font-size: 15px;
     width: 75%;
     float: right;
     padding-left: 20px;
+    padding-bottom: 20px;
   }
 }
 .cmsmenu .clientinfo{
@@ -480,10 +486,9 @@ font-size: 15px;
 }
 .clientmenu a{
   padding: 10px 20px;
+  display: block;
 }
-.cmsmenu .subscribe{
-  margin: 20px auto;
-}
+
 @media (min-width: 1024px){
   .herocontent h1{
     font-size:6rem;
@@ -584,8 +589,8 @@ font-size: 15px;
 .backbtn{
   background-color:  #F8F8FF; 
   border: 1px solid black;
-  width: 200px;
   text-align: center;
+  padding: 3px 20px;
 }
 /*products*/
 .hero3{
@@ -742,7 +747,7 @@ table th {
   width: 100%;
   padding-bottom: 20px;
 }
-.pImages{
+.productimg{
   padding-top: 20px;
   max-width: 100%;
   height: auto;
@@ -817,6 +822,9 @@ table th {
     object-fit: cover;
     height: auto;
     background-size: cover;
+  }
+  .addproductimg{
+    width: 300px;
   }
 }
 .heroblue{
@@ -916,4 +924,58 @@ table th {
     width: 50%;
     margin: 0 auto;
   }
+}
+/*cartpage*/
+.cart-page a{
+  text-decoration: none;
+  color:#2A3380;
+}
+.cart-page a:hover{
+  color:#C87D11;
+}
+#checkout{
+background-color: #2A3380;
+color: white;
+border-radius: 5px;
+padding: 3px 15px;
+}
+#checkout:hover{
+  background-color: #C87D11;
+}
+/*checkout*/
+.ticketrev{
+  background-color: #ECEEF0;
+}
+.ticket h1{
+  text-align: center;
+}
+.ticket a{
+  text-decoration: none;
+  color:#2A3380;
+}
+.ticket a:hover{
+  color:#C87D11;
+}
+@media (min-width: 1024px){
+  .billing{
+    float: left;
+    width: 50%;
+    padding-right: 15px;
+  }
+  .shipping{
+    float: right;
+    width: 50%;  
+  }
+  .payment{
+    clear: both;
+    padding-top: 15px;
+  }
+  #code{
+    width: 250px;
+  }
+  .code{
+    float: left;
+    width: 50%;
+  }
+ 
 }

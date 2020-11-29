@@ -22,14 +22,13 @@
     <div class="ticket">
     <h1>Checkout</h1>
     <h2>Order Review</h2>
+    <div class="ticketrev">
     <?php
     $totalamount=0;
     if(isset($this->oCartProduct)){
         foreach ($this->oCartProduct as $key => $arrItemInCart) {
         //print_r($arrItemInCart);
         //echo $arrItemInCart['id'];
-
-
       
         echo "<div class='cart-list'>";
             echo "<p>name: " .$arrItemInCart['name']. "</p>";
@@ -41,19 +40,18 @@
         $total= $arrItemInCart['qty'] * $arrItemInCart['price'];
         //echo "this" .$total;
         $totalamount = $totalamount + $total;
-
         }
     }else{
-    echo"no products";
-    echo "<a href='index.php?controller=public&action=main'>Home</a>";
+        echo"no products";
+        echo "<a href='index.php?controller=public&action=main'>Home</a>";
     }
-
     echo "<p>total" .$totalamount. "</p>";
     ?>
     <a href="index.php?controller=public&action=Cart">Cancel</a>
+    </div>
     </div><!--end of ticket-->
 
-    <div class="payment">
+    <div class="paymentform">
         <div  class="form">
         <form method="POST" action="index.php" id="formPayment">
             <input type="hidden" name="controller" value="client" /><!--go to clientController-->
@@ -77,7 +75,7 @@
                     </div>                    
                 </div><!--.fieldgroup-->
 
-                <div class="fieldgroup ">
+                <div class="fieldgroup required">
                 <label>Email</label>
                 <input type="text" name="email" value="" placeholder="your email"/><!--user email-->
                 <div class="popup">                  
@@ -140,9 +138,53 @@
 
             <div class="shipping">
                 <h2>Shipping details</h2>
+                <div class="fieldgroup required">
+                <label>City</label>
+                <input type="text" name="city" value="" placeholder="city"/>
+                <div class="popup">                  
+                    <p>Add your city</p>
+                </div> 
+                </div><!--.fieldgroup-->
+
+                <div class="fieldgroup required">
+                <label>Street 1</label>
+                <input type="text" name="street1" value="" placeholder="your street"/>
+                <div class="popup">                  
+                    <p>Add street</p>
+                </div> 
+                </div><!--.fieldgroup-->
+
+                <div class="fieldgroup ">
+                <label>Street 2</label>
+                <input type="text" name="street2" value="" placeholder="second street optional"/>
+                </div><!--.fieldgroup-->
+
+                <div class="fieldgroup required">
+                <label>Zipcode</label>
+                <input type="text" name="zipcode" value="" placeholder="zipcode"/>
+                <div class="popup">                  
+                    <p>Add your zipcode</p>
+                </div> 
+                </div><!--.fieldgroup-->
+
+                <div class="fieldgroup">
+                    <label>Select Country</label>
+                    <select name="countryId">
+                    <?php
+                    if(isset($this->oCountry)){
+                        foreach ($this->oCountry as $country){
+                        ?>
+                        <option value="<?=$country->id?>"><?=$country->name?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                    </select>                 
+                </div><!--.fieldgroup-->
+               
             </div><!--.shipping-->
 
-            <div class="payment">
+            <div class="payment">            
                 <h2>Payment</h2>
                 <div class="fieldgroup required">
                 <!--select card, add card number, select expiration month, year, write cvv-->
@@ -152,6 +194,24 @@
                     <p>Add your cardnumber</p>
                 </div> 
                 </div><!--.fieldgroup-->
+                <div class="fieldgroup code">
+                <label>Expiration Date</label>
+                <select>
+                    <option value="">Month</option>
+                </select>
+                <select>
+                    <option value="">Year</option>
+                </select>
+                </div><!--.fieldgroup-->
+
+                <div class="fieldgroup required code">
+                    <label>Security code</label>
+                    <input id="code" type="text" name="code" value="" placeholder="Three digits"/>
+                    <div class="popup">                  
+                        <p>Add your security code</p>
+                    </div> 
+                </div>
+
             </div><!--.payment-->
 
             <div class="fieldgroup">
@@ -161,4 +221,6 @@
 
     </div>
 </div>
+<!--Validate form-->
+<script type="text/javascript" src="js/validate4.js"></script> 
 <!--end of checkout-->
