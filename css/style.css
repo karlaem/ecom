@@ -758,6 +758,9 @@ table th {
 .pright{
   width: 100%;
 }
+.pright img{
+ width: 100%;
+}
 .btn{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -786,6 +789,9 @@ table th {
   margin-top: 50px;
 }
 @media (min-width: 1024px){
+  .pright img{
+    width: 100%;
+   }
   .herodetail{
     background-color: #F8F8FF;
     width: 100%;
@@ -815,7 +821,8 @@ table th {
     margin: 0 auto;
     text-align: center;
     display: flex;
-    height: 60vh;
+    min-height: 60vh;
+
   }
   img{
     width: 100%;
@@ -956,6 +963,7 @@ padding: 3px 15px;
 .ticket a:hover{
   color:#C87D11;
 }
+
 @media (min-width: 1024px){
   .billing{
     float: left;
@@ -977,5 +985,6 @@ padding: 3px 15px;
     float: left;
     width: 50%;
   }
+
  
 }
