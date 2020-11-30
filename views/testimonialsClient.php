@@ -8,10 +8,10 @@
                         if(isset($this->oReviews)){
                         foreach ($this->oReviews as $review){                         
                         ?>                                           
-                            <div class="revimg"><img src="<?=$review->image?>" alt="Our patch from a happy client"></div>
+                            <div class="revimg"><img src="<?=$review->image?>" alt="Our patch from a happy client <?=$review->image?>"></div>
 
                             <div class="review">
-                                <h2><?=$this->oCurUser->username?></h2>
+                                <h2><?=$review->username?></h2>
                                 <p><?=$review->strDescription?></p>
                             </div>
                             <?php

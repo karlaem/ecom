@@ -55,15 +55,14 @@ Class PublicController extends Controller{
 		if(isset($_SESSION["userId"])){
 			//add review form
 			$this->loadView("views/addReview.php");
-
-			//add testimonial
-			$this->loadData(Reviews::getReview($_GET["productid"]), "oReviews");
-			if($this->oReviews){
-			$this->loadView("views/testimonialsClient.php");
-			//$this->loadView("views/testimonials.php");
-			}
 		
 			$this->loadData(User::getCurrent(), "oCurUser");
+		}
+		//add testimonial
+		$this->loadData(Reviews::getReview($_GET["productid"]), "oReviews");
+		if($this->oReviews){
+		$this->loadView("views/testimonialsClient.php");
+		//$this->loadView("views/testimonials.php");
 		}
 
 		//add footer

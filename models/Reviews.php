@@ -7,6 +7,7 @@ Class Reviews{
         $this->productId = $data["productId"];
         $this->strDescription = $data["strDescription"];
         $this->image = $data["image"];
+        $this->username = $data["username"];        
     }
 
     // list
@@ -30,7 +31,11 @@ Class Reviews{
     //just one from product id
     public static function getReview($id)
 	{
-        $reviews= DB::query("SELECT * FROM reviews WHERE reviews.productId=".$id." LIMIT 1");
+       // $reviews= DB::query("SELECT * FROM reviews WHERE reviews.productId=".$id." LIMIT 1");
+        $reviews = DB::query("SELECT reviews.*, users.username FROM reviews 
+        LEFT JOIN users ON reviews.userId = users.id
+        WHERE reviews.productId=".$id." 
+        LIMIT 1");
         //if no id given
         if($reviews == ""){
             return null;
